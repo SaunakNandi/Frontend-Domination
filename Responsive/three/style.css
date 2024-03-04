@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    /* background-color: #c07272; */
+    position: relative;
+    padding-top: 0.1px;
+}
+#nav{
+    height: 12vh;
+    width: 100%;
+    /* background-color: aquamarine; */
+    margin-top: 40px;
+    /* position: absolute; */
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav h1{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+
+}
+#nav h2{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid #000;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#nav h2:nth-last-child(1){
+    width: 10%;
+}
+#nav h2:nth-last-child(2){
+    width: 24%;
+}
+
+#center{
+    height: calc(100% - 13vh);
+    width: 100%;
+    background-color: aqua;
+    padding: 4vw;
+    position: relative;
+}
+#content{
+    height: 100%;
+    width: 100%;
+    background-color: blueviolet;
+    position: relative;
+}
+#content video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#overlay{
+    height: 52%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    /* background-color: crimson; */
+    padding: 1vw;
+    color: #fff;
+}
+#over1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5vw;
+}
+#over1 h1{
+    font-size: 3vw;
+}
+#over1 h2{
+    font-size: 1vw;
+    padding: 2vw 2vw;
+    /* background-color: blue; */
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid white;
+    border-bottom: 2px solid #fff;
+}
+#over2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #fff;
+    padding: 1.5vw 0;
+}
+#over2 h4{
+    font-size: 1.3vw;
+    font-weight: 500;
+}
+
+#over2 img{
+    height: 3vw;
+}
