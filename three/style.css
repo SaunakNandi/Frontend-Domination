@@ -217,16 +217,25 @@ body {
 }
 #page3-part1{
   width: 50%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
-#page3-part1 img{
+#page3-part1-img{
+  position: relative;
+  display: flex;
+  align-items: center;
+
+}
+#page3-part1-text{
   position: absolute;
+  bottom: 0;
+  width: 60%;
 }
-#page3-part1 img:nth-child(2){
-  /* position: absolute; */
-  
+#page3-part1-text p{
+  text-align: center;
 }
 #page3-part2{
   width: 50%;
