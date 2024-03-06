@@ -147,6 +147,65 @@ body {
   margin: 1.98vw;
 }
 
+#alphabet{
+  height: 10vh;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5vw;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+#alphabet h5{
+  font-size: 1.5vw;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 4px;
+  border-bottom: 2px solid #000;
+  margin-right: 10px;
+}
+#alphabet h6{
+  font-size: 1vw;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 4px;
+  /* background-color: yellow; */
+  padding: 0.5vw 0.6vw;
+  cursor: pointer;
+  border-radius: 50%;
+}
+#alphabet h6:hover{
+  border: 1px solid black;
+}
+
+#page2{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5vw;
+  background-size: cover;
+  background-position: center;
+}
+#page2-part1{
+  height: 100%;
+  width: 50%;
+  background-image: url('/photo.jpg');
+}
+#page2-part2{
+  height: 100%;
+  width: 46%;
+}
+#page2-part2 img{
+  width: 100%;
+  object-fit: cover;
+  height: 70%;
+}
 @keyframes anime{
     from{
         transform: translateX(0);
