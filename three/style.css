@@ -250,6 +250,55 @@ body {
   background-image: url('/assets//with_umbrella.avif');
 }
 
+#page4{
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  position: relative;
+  padding: 5vh 4vw;
+}
+#page4>h1{
+  text-align: center;
+  text-transform: uppercase;
+  /* font-weight: 800; */
+  font-size: 3vw;
+  margin-bottom: 7vh;
+}
+
+.elem{
+  height: 15vh;
+  width: 100%;
+  background-color: chocolate;
+  border-top: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.elem h4{
+  font-size: 1.1vw;
+  text-transform: uppercase;
+  font-weight: 500;
+  width: 6%;
+  /* background-color: forestgreen; */
+}
+.elem .elem-part2{
+  width: 45%;
+
+}
+.elem .elem-part2 h1{
+  font-size: 2.5vw;
+  font-weight: 500;
+}
+.elem .elem-part2 h5{
+  font-size: 0.8vw;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.elem:nth-last-child(1)
+{
+  border-bottom: 2px soild #000;
+}
 @keyframes anime{
     from{
         transform: translateX(0);
