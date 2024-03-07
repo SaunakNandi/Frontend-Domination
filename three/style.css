@@ -27,6 +27,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* position: relative; */
 }
 
 #nav h1 {
@@ -36,6 +37,25 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 45px;
+  position: relative;
+}
+#nav h1:after{
+  content: "©";
+  font-weight: 300;
+  font-size: 20px;
+  position: absolute;
+  top: 20%;
+  right: 16%;
+}
+#nav h1:before{
+  content: "Kuch Bhi Kardunga";
+  font-weight: 300;
+  font-size: 11px;
+  position: absolute;
+  bottom: 10%;
+  right: 20%;
+  color: #666;
+  letter-spacing: 0.6px;
 }
 #nav h2 {
   height: 100%;
