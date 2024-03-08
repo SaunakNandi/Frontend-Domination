@@ -110,7 +110,7 @@
       }
       #container {
         height: 100%;
-        width: 100%;
+        width: fit-content;
         /* background-color: orchid; */
         display: inline-block;
         padding: 2vw;
@@ -120,12 +120,39 @@
         animation-timing-function: linear;
       }
       #scroll img {
-        height: 90%;
-        width: 13%;
+        height: 80%;
+        width: 30%;
         border-radius: 50%;
         object-fit: cover;
         object-position: 0 30%;
         margin: 1.98vw;
       }
-      
+      #page2{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5vw;
+        background-size: cover;
+        background-position: center;
+        gap: 10px;
+      }
+      #page2-part1{
+        height: 50%;
+        width: 100%;
+        background-image: url(/assets/photo.jpg);
+        background-position: center;
+        background-size: cover;    
+      }
+      #page2-part2{
+        height: 50%;
+        width: 100%;
+      }
+      #page2-part2 img{
+        width: 100%;
+        object-fit: cover;
+        height: fit-content;
+      }
 }

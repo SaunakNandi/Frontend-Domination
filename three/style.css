@@ -39,9 +39,6 @@ body {
   font-size: 45px;
   position: relative;
 }
-#nav h3{
-  display: none;
-}
 #nav h1:after{
   content: "©";
   font-weight: 300;
@@ -79,9 +76,9 @@ body {
 }
 
 #center {
-  height: 90%;
+  height: calc(100% - 13vh);
   width: 100%;
-  /* background-color: aqua; */
+  background-color: aqua;
   padding: 4vw;
   position: relative;
 }
@@ -250,8 +247,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  
+
 }
 #page3-part1-text{
   position: absolute;
