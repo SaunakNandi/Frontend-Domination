@@ -56,9 +56,17 @@ body {
   text-align: center;
 }
 
-img{
-    height: 400px;
-    position: absolute;
-    top: 12%;
-    left: 40%;
+img {
+  height: 400px;
+  position: absolute;
+  top: 12%;
+  left: 40%;
+  width: 260px;
+}
+
+#img1 {
+  rotate: 20deg;
+}
+#img2 {
+  rotate: 10deg;
 }

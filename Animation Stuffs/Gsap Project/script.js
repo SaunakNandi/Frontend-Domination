@@ -18,5 +18,6 @@ tl.from('img',{
     x:100,
     rotate:45,
     opacity:0,
-    duration:0.5
+    duration:0.5,
+    stagger:0.5
 })
