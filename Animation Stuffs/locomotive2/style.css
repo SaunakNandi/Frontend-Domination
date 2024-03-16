@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy";
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body{
+  overflow-x: hidden;
+}
+#page1, #page2, #page3 {
+  height: 100vh;
+  width: 100%;
+  background-color: lightskyblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page2{
+  background-color: darkturquoise;
+}
+#page3{
+  background-color: aqua;
+}
+
+.box{
+  height: 300px;
+  width: 300px;
+  background-color: red;
+}
