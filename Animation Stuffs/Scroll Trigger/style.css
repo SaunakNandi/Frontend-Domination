@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy";
+  color: white;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#page1, #page2, #page3 {
+  height: 100%;
+  width: 100%;
+  background-color: salmon;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#page2{
+  background-color: blueviolet;
+}
+#page3{
+  background-color: olivedrab;
+}
+.circle{
+  height: 300px;
+  width: 300px;
+  background: linear-gradient(lightblue,royalblue);
+  border-radius: 50%;
+}
