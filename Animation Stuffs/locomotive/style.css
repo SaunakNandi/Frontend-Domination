@@ -13,18 +13,27 @@ body{
   overflow-x: hidden;
 }
 #page1, #page2, #page3 {
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  background-color: black;
+  background-color: lightskyblue;
 }
-
 #page2{
-  background-color: lightblue;
+  background-color: darkturquoise;
 }
 #page3{
-  background-color: black;
+  background-color: aqua;
 }
-#page2 h1{
-  font-size: 40vw;
-  font-weight: 600;
+#page2 #image-div{
+  height: 100%;
+  width: 35%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+#image-div img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  scale: 1.2;
 }
