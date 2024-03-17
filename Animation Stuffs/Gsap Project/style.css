@@ -44,7 +44,7 @@ body {
   width: 80%;
   margin-left: 10%;
   position: relative;
-  z-index: 9;
+  z-index: 1;
 }
 #main h1:nth-child(2) {
   margin-top: 150px;
