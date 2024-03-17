@@ -6,7 +6,7 @@ gsap.from("#page1 .circle",{
 
 gsap.from("#page2 .circle",{
     scale:0,
-    delay:1,
+    delay:0.2,
     duration:2,
     scrollTrigger:{
         trigger:"#page2 .circle",
