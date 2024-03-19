@@ -11,12 +11,14 @@ body {
   height: 100%;
 }
 #crsr{
-  height: 4vw;
-  width: 4vw;
-  background-color: white;
+  height: 2.5vw;
+  width: 2.5vw;
+  /* background-color: white; */
   position: fixed;
   z-index: 999;
   border-radius: 50%;
+  border: 1px solid #ffffff7d;
+  transform: translate(-50%, -50%); /*to make the crsr center to the mouse arrow */
 }
 #main{
   position: relative;
@@ -90,20 +92,30 @@ body {
   font-weight: 500;
 }
 .hero{
-  background-color: red;
   width: 72%;
   margin-left: 27%;
+  height: fit-content;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 9999;
 }
 .hero:nth-child(2)
 {
   margin-top: 18vh;
 }
-.hero h1{
+.hero h1,.hero h2{
   font-size: 7.1vw;
   text-transform: uppercase;
   line-height: 7vw;
   font-weight: 600;
 }
+.hero h2:hover{
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+}
+
 @keyframes anime {
   0%{
     font-family: "plain light";
