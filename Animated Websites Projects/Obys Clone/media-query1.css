@@ -1,0 +1,74 @@
+@media (min-width: 900px) and (max-width: 1280px), (min-height:460px) and(max-height: 480px){
+    #page4{
+        height: 300vh;
+        width: 100%;
+        padding: 7vh 0;
+        position: relative;
+      }
+      #page4-content {
+        min-height: 100%;
+        width: 72vw;
+        position: relative;
+      
+        margin-left: 28%;
+      }
+      
+      #page4-content h1 {
+        font-size: 7vw;
+        text-transform: uppercase;
+        position: relative;
+      }
+      
+      
+      #page4-content .underline {
+        height: 1px;
+        width: 100%;
+        background-color: #fff;
+        margin: 3vw 0;
+      }
+      
+      #direct-element {
+        font-size: 2.7vw;
+          width: 55%;
+          margin-bottom: 4vw;
+      }
+      
+      #page4-flex {
+        display: flex;
+      }
+      
+      #page4-flex img {
+        height: 90vh;
+        width: 45%;
+      }
+      
+      #page4-flex p {
+        font-size: 1.8vw;
+          width: 33%;
+          margin-left: 2vw;
+      }
+      #page4-blue-div{
+        background-color: #3F7DF4;
+        width: 44vw;
+        padding: 5vw;
+        position: relative;
+        margin-top: -23vh;
+        margin-left: 23vw;
+        height: 80vh;
+      }
+      .blue-div-elem{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5vw 0;
+        border-bottom: 2px solid #ffffff94;
+      }
+      .blue-div-elem h4{
+        font-size: 2.2vw;
+        font-weight: 500;
+      }
+      .blue-div-elem p{
+        width: 40%;
+        font-size: 1.5vw;
+      }
+}
