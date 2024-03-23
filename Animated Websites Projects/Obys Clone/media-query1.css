@@ -71,4 +71,59 @@
         width: 40%;
         font-size: 1.5vw;
       }
+      #page5{
+        min-height: 100vh;
+        width: 100%;
+        position: relative;
+      }
+      .elem{
+        white-space: nowrap; /* because of the wrap it will come in the 2nd line but when we use nowrap it will go out of the div in the x direction and that is why we use overflow-x: auto to make it scrollable */
+        overflow-x: hidden;
+        margin-bottom: -1vh;
+      }
+      .elem h1{
+        font-size: 7vw;
+        -webkit-text-stroke: 1px #fff;
+        color: transparent;
+        text-transform: uppercase;
+        font-weight: 400;
+        display: inline-block;
+        margin-right: 16px;
+        animation-name: animation;
+        animation-duration: 20s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+      .elem2{
+        white-space: nowrap; /* because of the wrap it will come in the 2nd line but when we use nowrap it will go out of the div in the x direction and that is why we use overflow-x: auto to make it scrollable */
+        overflow-x: hidden;
+        margin-bottom: -1vh;
+      }
+      .elem2 h1{
+        font-size: 7vw;
+        -webkit-text-stroke: 1px #fff;
+        color: transparent;
+        text-transform: uppercase;
+        font-weight: 400;
+        display: inline-block;
+        margin-left: 16px;
+        animation-name: animation;
+        animation-duration: 20s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: reverse;
+      }
+      @keyframes animation{
+        from{
+            transform: translateX(0);
+        }
+        to{
+            transform: translateX(calc(-100% - 20px));
+        }
+      }
+      .elem span, .elem2 span{
+        font-style: italic;
+        font-family: "silk serif";
+        color: transparent;
+      }
 }
