@@ -96,10 +96,9 @@ body {
   width: 72%;
   margin-left: 27%;
   height: fit-content;
-  overflow: hidden;
   display: flex;
   align-items: center;
-  position: relative;
+  overflow-y: hidden;
   z-index: 9999;
 }
 .hero:nth-child(2)
@@ -111,6 +110,16 @@ body {
   text-transform: uppercase;
   line-height: 7vw;
   font-weight: 600;
+  position: relative;
+}
+#hero1::before{
+  content: "01";
+  position: absolute;
+  font-size: 3vw;
+  font-weight: 100;
+  font-family: "silk serif";
+  left: 20%;
+  top: 29%;
 }
 .hero h2 {
   font-size: 7.2vw;
@@ -128,6 +137,7 @@ body {
   font-weight: 500;
     border-bottom: 0.5vw solid #ffffff00;
 }
+
  #page2{
   padding-top: 17vh;
     position: relative;
