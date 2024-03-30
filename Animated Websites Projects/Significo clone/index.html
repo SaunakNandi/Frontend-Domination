@@ -6,45 +6,42 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aayushchouhan24/sheryjs@main/dist/Shery.css" /> -->
+
+    <!-- remixicon cdn  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   </head>
-  <body theme="white">
-    <div class="main w-full">
+  <body theme="black">
+    <div class="main w-full relative">
       <div class="home section w-full h-screen relative">
         <div class="btmtext absolute bottom-[7%] left-[3%] z-[4] w-52">
           We build big ideas. Software. Apps. Tools. For real people. Real
           lives.
         </div>
-        <div
-          class="hidden videodiv w-full h-screen absolute top-0 left-0 z-[3] bg-black overflow-hidden"
-        >
+        <div style="--clip: 100%" class="videodiv bg-black w-full h-screen absolute top-0 left-0 z-[3] overflow-hidden">
           <video
             autoplay
             loop
             class="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            src="./Assetes/1ENIoa5sjq.mp4"
+            src="./Assetes/video.mp4"
           ></video>
         </div>
         <div class="marqueecontainer w-full h-screen relative overflow-hidden">
-          <div
-            class="heading absolute top-[7%] left-1/2 -translate-x-1/2 w-60 text-center"
+          <div class="heading absolute top-[7%] left-1/2 -translate-x-1/2 w-60 text-center"
           >
             <h1 class="text-xl font-regular">
               Crafting a new paradigm of healthcare, one that is
             </h1>
           </div>
-          <div
-            class="absolute scale-[1] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]"
+          <div class="slidesm absolute scale-[1] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]"
           >
-            <div
-              class="row -translate-x-1/2 w-full flex items-center gap-10 whitespace-nowrap"
-            >
+            <div class="row lft -translate-x-1/2 w-full flex items-center gap-10 whitespace-nowrap">
               <div class="elem flex items-center gap-10">
                 <h1 class="font-semibold font-['Pp_Neue_Machina'] text-8xl">
                   empathetic
                 </h1>
-                <div
-                  class="imgdiv w-[3.5rem] h-[3.5rem] rounded-full bg-yellow-500 overflow-hidden"
-                >
+                <div class="imgdiv w-[3.5rem] h-[3.5rem] rounded-full bg-yellow-500 overflow-hidden" >
                   <img
                     src="./Assetes/img1.png"
                     class="w-full h-full object-cover"
@@ -123,9 +120,7 @@
                 </div>
               </div>
             </div>
-            <div
-              class="row -translate-x-1/3 w-full flex items-center gap-10 whitespace-nowrap"
-            >
+            <div class="row rgt -translate-x-1/3 w-full flex items-center gap-10 whitespace-nowrap">
               <div class="elem flex items-center gap-10">
                 <h1 class="font-semibold font-['Pp_Neue_Machina'] text-8xl">
                   empathetic
@@ -207,9 +202,7 @@
                 </div>
               </div>
             </div>
-            <div
-              class="row -translate-x-2/3 w-full flex items-center gap-10 whitespace-nowrap"
-            >
+            <div class="row lft -translate-x-2/3 w-full flex items-center gap-10 whitespace-nowrap">
               <div class="elem flex items-center gap-10">
                 <h1 class="font-semibold font-['Pp_Neue_Machina'] text-8xl">
                   empathetic
@@ -295,9 +288,7 @@
                 </div>
               </div>
             </div>
-            <div
-              class="row -translate-x-3/4 w-full flex items-center gap-10 whitespace-nowrap"
-            >
+            <div class="row rgt -translate-x-3/4 w-full flex items-center gap-10 whitespace-nowrap">
               <div class="elem flex items-center gap-10">
                 <h1 class="font-semibold font-['Pp_Neue_Machina'] text-8xl">
                   empathetic
@@ -676,5 +667,8 @@
         </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
   </body>
 </html>
