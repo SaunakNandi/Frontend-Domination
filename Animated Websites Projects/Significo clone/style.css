@@ -6,6 +6,10 @@
   --dsalmon: rgb(87, 37, 33);
   --dcyan: #1f2f32;
 }
+
+body{
+  transition: background-color ease-out 1s;
+}
 .videodiv {
   /* variable clip is used in style of videodiv. 50% from x and 50% from y. Circle means the video will get cliped in a circle way. video [2:01:00] */
   clip-path: circle(var(--clip) at 50% 50%);
@@ -20,7 +24,7 @@ body[theme="black"] {
   background-color: var(--black);
 }
 body[theme="black"] .section {
-  color: #fff;
+  color: var(--white);
 }
 body[theme="cyan"] {
   background-color: var(--cyan);
