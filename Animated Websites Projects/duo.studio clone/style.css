@@ -213,6 +213,10 @@ body {
   transform: translateY(0%) rotate(0deg);
 } */
 
+.text-div:hover + img:nth-child(1){
+  opacity: 1;
+  transform: translateY(0%) rotate(0deg);
+}
 .text-div:hover + img:nth-child(3){
   opacity: 1;
   transform: translateY(0%) rotate(0deg);
