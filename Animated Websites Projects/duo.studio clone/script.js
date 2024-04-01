@@ -103,57 +103,6 @@ tl2.to(
   "change"
 );
 
-
-// var img1=document.querySelector("#img1");
-// var img2=document.querySelector("#img2");
-// var img3=document.querySelector("#img3");
-// // var img2=document.querySelector("#img2");
-// var text1=document.querySelector('#text1')
-// var text2=document.querySelector('#text2')
-// var text3=document.querySelector('#text3')
- 
-// text1.addEventListener("mouseenter",()=>{
-//   img1.style.opacity="1";
-//   img1.style.transform="translateY(0%) rotate(0deg)"
-//   // img2.style.visibilty="visible";
-// })
-// text1.addEventListener("mouseleave",()=>{
-//   img1.style.opacity="0";
-// })
-// text2.addEventListener("mouseenter",()=>{
-//   img2.style.opacity="1";
-//   // img2.style.visibilty="visible";
-// })
-// text2.addEventListener("mouseleave",()=>{
-//   img2.style.opacity="0";
-// })
-// text3.addEventListener("mouseenter",()=>{
-//   img3.style.opacity="1";
-//   // img2.style.visibilty="visible";
-// })
-// text3.addEventListener("mouseleave",()=>{
-//   img3.style.opacity="0";
-// })
-
-
-  const textDiv = document.querySelector('.text-div');
-  // const images = document.querySelectorAll('.elem img');
-
-  // textDiv.addEventListener('mouseenter', function() {
-  //   images.forEach(img => 
-  //     {
-  //       img.style.opacity = 1
-  //       img.style.transform = 'translateY(0) rotate(0deg)';
-  //     });
-  // });
-
-  // textDiv.addEventListener('mouseleave', function() {
-  //   images.forEach(img =>{
-  //     img.style.opacity = 0
-  //     img.style.transform = 'translateY(10%) rotate(2deg)';
-  //   });
-  // });
-
   function showImages(h1) {
     const images = h1.parentNode.parentNode.querySelectorAll('.elem img');
     images.forEach(img => {
