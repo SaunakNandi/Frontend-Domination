@@ -95,10 +95,23 @@ tl2.to(
   },
   "change"
 );
-tl2.from(
+tl2.to(
   "video",
   {
-    width: "90%",
+    width: "60%",
   },
   "change"
 );
+
+
+// var img1=document.querySelector(".img1");
+// // var img2=document.querySelector("#img2");
+// var text=document.querySelector('#text1')
+
+// text.addEventListener("mouseenter",()=>{
+//   img1.style.opacity="1";
+//   // img2.style.visibilty="visible";
+// })
+// text.addEventListener("mouseleave",()=>{
+//   img1.style.opacity="0";
+// })

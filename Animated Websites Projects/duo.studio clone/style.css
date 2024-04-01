@@ -161,15 +161,15 @@ body {
   right: 4vw;
 }
 .page4 {
-  min-height: 100vh;
+  min-height: 120vh;
   width: 100%;
-  background-color: green;
+  /* background-color: green; */
   position: relative;
   padding: 10vh;
 }
 
 .elem {
-  background-color: salmon;
+  /* background-color: salmon; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,18 +179,41 @@ body {
   background-color: cornflowerblue;
   height: 17vh;
   overflow: hidden;
+  position: relative;
+    z-index: 9;
 }
 .elem h1 {
   font-size: 7vw;
+  font-weight: 600;
+  transition: all ease-out 0.5s;
 }
-.elem img{
+.elem:hover h1{
+  transform: translateY(-100%);
+  color: #EDBFFF;
+}
+.elem img {
   position: absolute;
+  opacity: 0;
+  transition: all ease-out 0.5s;
+  transform: translateY(10%) rotate(2deg);
 }
-.elem img:nth-child(1)
-{
-  left: 0;
+.elem img:nth-child(1){
+  left: 2%;
 }
-.elem img:nth-child(2)
-{
-  right: 0;
+.elem img:nth-child(3){
+  right: 5%;
+}
+
+.text-div:hover h1{
+  transform: translateY(-100%);
+  color: #EDBFFF;
+}
+/* .elem:hover img{
+  opacity: 1;
+  transform: translateY(0%) rotate(0deg);
+} */
+
+.text-div:hover + img:nth-child(3){
+  opacity: 1;
+  transform: translateY(0%) rotate(0deg);
 }
