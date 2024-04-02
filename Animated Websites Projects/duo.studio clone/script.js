@@ -102,7 +102,20 @@ tl2.to(
   },
   "change"
 );
+var tl3 = gsap.timeline({
+  scrollTrigger: {
+      trigger: ".page1 h1",
+      scroller: ".main",
+      // markers:true,
+      start: "top -280%",
+      end: "top -300%",
+      scrub: 3
+  }
+})
 
+tl3.to(".main",{
+  backgroundColor:"#0F0D0D"
+})
   function showImages(h1) {
     const images = h1.parentNode.parentNode.querySelectorAll('.elem img');
     images.forEach(img => {
@@ -119,3 +132,13 @@ tl2.to(
     });
   }
 
+var boxes=document.querySelectorAll(".box")
+boxes.forEach((box)=>{
+  box.addEventListener("mouseenter",()=>{
+    var att=box.getAttribute("data-image")
+    box.style.backgroundColor="red"
+  })
+  box.addEventListener("mouseleave",()=>{
+    box.style.backgroundColor="black"
+  })
+})
