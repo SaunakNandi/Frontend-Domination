@@ -34,9 +34,9 @@ loco();
 
 var crsr = document.querySelector("#crsr");
 var main = document.querySelector("#main");
-main.addEventListener("mousemove", (coord) => {
-  crsr.style.left = coord.x + "px";
-  crsr.style.top = coord.y + "px";
+document.addEventListener("mousemove", (coord) => {
+  crsr.style.left = coord.x+ 10 + "px";
+  crsr.style.top = coord.y+ 10 + "px";
 });
 
 gsap.from(".page1 h1,.page1 h2", {
@@ -113,7 +113,7 @@ var tl3 = gsap.timeline({
   }
 })
 
-tl3.to(".main",{
+tl3.to("#main",{
   backgroundColor:"#0F0D0D"
 })
   function showImages(h1) {
@@ -141,12 +141,28 @@ boxes.forEach((box)=>{
     crsr.style.height="250px"
     crsr.style.borderRadius="0"
     crsr.style.backgroundImage=`url(${att})`
+    crsr.style.mixBlendMode="normal"
   })
   box.addEventListener("mouseleave",()=>{
-    box.style.backgroundColor="black"
+    box.style.backgroundColor="transparent"
     crsr.style.backgroundImage="none"
     crsr.style.borderRadius="50%"
     crsr.style.height= "15px";
     crsr.style.width= "15px";
+    crsr.style.mixBlendMode="difference"
+  })
+})
+
+
+var h4=document.querySelectorAll('#nav h4')
+var purple=document.querySelector('#purple')
+h4.forEach((elem)=>{
+  elem.addEventListener('mouseenter',()=>{
+    purple.style.display='block'
+    purple.style.opacity="1"
+  })
+  elem.addEventListener('mouseleave',()=>{
+    purple.style.display='none'
+    purple.style.opacity="0"
   })
 })
