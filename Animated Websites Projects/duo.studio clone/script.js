@@ -144,5 +144,9 @@ boxes.forEach((box)=>{
   })
   box.addEventListener("mouseleave",()=>{
     box.style.backgroundColor="black"
+    crsr.style.backgroundImage="none"
+    crsr.style.borderRadius="50%"
+    crsr.style.height= "15px";
+    crsr.style.width= "15px";
   })
 })
