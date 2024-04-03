@@ -109,7 +109,7 @@ var tl3 = gsap.timeline({
       // markers:true,
       start: "top -280%",
       end: "top -300%",
-      scrub: 3
+      scrub: "3"
   }
 })
 
@@ -136,7 +136,11 @@ var boxes=document.querySelectorAll(".box")
 boxes.forEach((box)=>{
   box.addEventListener("mouseenter",()=>{
     var att=box.getAttribute("data-image")
-    box.style.backgroundColor="red"
+    // box.style.backgroundColor="red"
+    crsr.style.width="300px"
+    crsr.style.height="250px"
+    crsr.style.borderRadius="0"
+    crsr.style.backgroundImage=`url(${att})`
   })
   box.addEventListener("mouseleave",()=>{
     box.style.backgroundColor="black"
