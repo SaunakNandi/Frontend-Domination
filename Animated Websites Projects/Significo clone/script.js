@@ -123,7 +123,7 @@ function capsuleAnimation() {
 function bodyColorChange()
 {
   document.querySelectorAll(".section").forEach(function (e){
-    console.log(e.attributes[0])
+    console.log(e.dataset)
     
     ScrollTrigger.create({
       trigger:e,
@@ -139,6 +139,18 @@ function bodyColorChange()
     })
   })
 }
+
+document.querySelectorAll(".card").forEach((x)=>{
+  console.log(x)
+  ScrollTrigger.create({
+    trigger:x,
+    start:"top 20%",
+    end:"bottom 50%",
+    markers: true,
+    scrub: 1,
+    // write code here
+  })
+})
 
 homePageAnimation();
 slider();
