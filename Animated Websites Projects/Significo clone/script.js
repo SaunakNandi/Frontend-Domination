@@ -140,17 +140,59 @@ function bodyColorChange()
   })
 }
 
-document.querySelectorAll(".card").forEach((x)=>{
-  console.log(x)
-  ScrollTrigger.create({
-    trigger:x,
-    start:"top 20%",
-    end:"bottom 50%",
-    markers: true,
-    scrub: 1,
-    // write code here
+// document.querySelectorAll(".card").forEach((x)=>{
+//   //console.log(x)
+//   gsap.to(x,{
+//     scrollTrigger: {
+//       trigger: '.cards',
+//       start: "top 60%",
+//       end: "bottom 200%",
+//       scrub: 2,
+//       markers:"true",
+//     },
+//     width:"90%",
+//     backgroundColor:"black",
+//     color:"white",
+//     duration:0.1,
+//     stagger:true,
+//   })
+// })
+var tl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.craft',
+      start: "top 60%",
+      end: "bottom -50%",
+      scrub: 2,
+      markers:"true",
+      
+  },
+});
+tl2.to('.card1',{
+    width:"90%",
+    backgroundColor:"black",
+    color:"white",
+    ease:Power2
+    // duration:0.1,
   })
-})
+
+  tl2.to('.card2',{
+    width:"90%",
+    backgroundColor:"black",
+    color:"white",
+    // duration:0.1,
+  })
+  tl2.to('.card3',{
+    width:"90%",
+    backgroundColor:"yellow",
+    color:"white",
+    // duration:0.1,
+  })
+  tl2.to('.card4',{
+    width:"90%",
+    backgroundColor:"black",
+    color:"white",
+    // duration:0.1,
+  })
 
 homePageAnimation();
 slider();

@@ -45,7 +45,7 @@ body[theme="white"] .section {
   color: black;
 }
 
-.card{
+.card1,.card2,.card3,.card4{
   width: 70%;
   height: 35vh;
   border: 1px solid black;
