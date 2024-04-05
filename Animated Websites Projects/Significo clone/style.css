@@ -7,7 +7,7 @@
   --dcyan: #1f2f32;
 }
 
-body{
+body {
   transition: background-color ease-out 1s;
 }
 .videodiv {
@@ -45,15 +45,26 @@ body[theme="white"] .section {
   color: black;
 }
 
-.card1,.card2,.card3,.card4{
+.card1,
+.card2,
+.card3,
+.card4 {
   width: 70%;
   height: 35vh;
   border: 1px solid black;
 }
-.cards{
+.cards {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+}
+.craft {
+  position: relative;
+}
+.cards {
+  position: absolute;
+  right: 2%;
+  /* top: 40%; */
 }

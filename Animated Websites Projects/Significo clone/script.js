@@ -141,37 +141,44 @@ function bodyColorChange()
 }
 
 // document.querySelectorAll(".card").forEach((x)=>{
-//   //console.log(x)
-//   gsap.to(x,{
-//     scrollTrigger: {
-//       trigger: '.cards',
-//       start: "top 60%",
-//       end: "bottom 200%",
-//       scrub: 2,
-//       markers:"true",
+//   ScrollTrigger.create({
+//     trigger:x,
+//     start:"top 60%",
+//     end:"bottom -20%",
+//     markers:true,
+//     // scrub: 1,
+//     onEnter:()=>{
+//       x.style.width='90%'
+//       x.style.backgroundColor='black'
+//       x.style.color='white'
+//       x.style.transition='all ease-out 0.5s'
 //     },
-//     width:"90%",
-//     backgroundColor:"black",
-//     color:"white",
-//     duration:0.1,
-//     stagger:true,
+//     onLeave: () => {
+//       x.style.width='70%'
+//       x.style.backgroundColor='transparent'
+//       x.style.color='white'
+//     },
+//     onEnterBack:()=>{
+//       x.style.width='70%'
+//       x.style.backgroundColor='transparent'
+//       x.style.color='white'
+//     }
 //   })
 // })
 var tl2 = gsap.timeline({
   scrollTrigger: {
-    trigger: '.craft',
+    trigger: '.abc',
       start: "top 60%",
-      end: "bottom -50%",
+      end: "bottom 10%",
       scrub: 2,
-      markers:"true",
-      
+      markers:true,
   },
 });
 tl2.to('.card1',{
     width:"90%",
     backgroundColor:"black",
     color:"white",
-    ease:Power2
+    // ease:Power2
     // duration:0.1,
   })
 
@@ -183,7 +190,7 @@ tl2.to('.card1',{
   })
   tl2.to('.card3',{
     width:"90%",
-    backgroundColor:"yellow",
+    backgroundColor:"black",
     color:"white",
     // duration:0.1,
   })
