@@ -62,6 +62,8 @@ body[theme="white"] .section {
 }
 .craft {
   position: relative;
+  height: 200vh;
+  background-color: transparent;
 }
 .cards {
   position: absolute;
