@@ -140,6 +140,12 @@ function bodyColorChange()
   })
 }
 
+function jumpToNextParent(element) {
+  var parent = element.parentElement.nextElementSibling;
+  if (parent) {
+      parent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 // document.querySelectorAll(".card").forEach((x)=>{
 //   ScrollTrigger.create({
 //     trigger:x,
@@ -165,6 +171,7 @@ function bodyColorChange()
 //     }
 //   })
 // })
+
 var tl2 = gsap.timeline({
   scrollTrigger: {
     trigger: '.abc',
