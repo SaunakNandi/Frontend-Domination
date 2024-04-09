@@ -322,19 +322,20 @@ body {
     align-items: center;
     justify-content: center;
     scale: 0;
+    opacity: 0;
     border-radius: 50%;
-    transition: all ease 0.4s;
+    /* transition: all ease-out; */
   }
   .circle-in p{
     font-size: 1.1vw;
     color: #000;
     width: 80%;
     font-weight: 500;
-    scale: 0;
-    transition: all ease 0.4s;
-    transition-delay: 0.1s;
+    scale: 1;
+    /* transition: all ease-out; */
+    /* transition-delay: 0.1s; */
   }
-  .page3-circle1:hover .circle-in{
+  /* .page3-circle1:hover .circle-in{
     scale: 1;
   }
   .page3-circle1:hover p{
@@ -346,7 +347,7 @@ body {
   }
   .page3-circle2:hover p{
     scale: 1;
-  }
+  } */
   
     #page4{
         height: 300vh;
