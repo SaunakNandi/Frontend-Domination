@@ -155,45 +155,9 @@ function sheryAnimation(){
   })
 }
 
-function mouseHover()
-{
-  let page_circle1=document.querySelector('.page3-circle1');
-  let circle1=document.querySelector('#circle1')
-  let page_circle2=document.querySelector('.page3-circle2');
-  let circle2=document.querySelector('#circle2')
 
-  page_circle1.addEventListener('mouseenter',()=>{
-    gsap.to('#circle1',{
-      opacity:1,
-      scale:1
-    })
-  })
-  page_circle1.addEventListener('mouseleave',()=>{
-    gsap.to('#circle1',{
-      scale:0,
-      opacity:0,
-    })
-    console.log('called')
-  })
-  page_circle2.addEventListener('mouseenter',()=>{
-    circle2.style.scale=1
-    circle2.style.opacity=1
-  })
-  page_circle2.addEventListener('mouseleave',()=>{
-    // gsap.to('#circle2',{
-    //   scale:0,
-    //   opacity:0,
-    //   delay:0.1,
-    //   duration:0.4
-    // })
-    circle2.style.scale=0
-    circle2.style.opacity=0
-    console.log('called')
-  })
-}
 
 locomotiveAnimation()
 loadingAnimation();
 sheryAnimation()
 crsrAnimation();
-mouseHover()
