@@ -215,9 +215,31 @@ function footerAnimation() {
   })
 }
 
+function func()
+{
+  console.log("called")
+  gsap.to('#our',{
+    scrollTrigger: {
+      trigger: "#our",
+      scroller: "#main",
+      start: "top 80%",
+      end: "bottom 50%",
+      markers: true,
+      scrub: 2,
+    },
+    yPercent:-100,
+    opacity:1,
+    delay:0.2,
+    duration: 0.5,
+    ease: Power2
+  })
+}
+
+
 locomotiveAnimation()
 loadingAnimation()
-flagAnimation()
 sheryAnimation()
 cursorAnimation()
+flagAnimation()
+func()
 footerAnimation()
