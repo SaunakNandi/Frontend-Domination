@@ -159,5 +159,5 @@ function sheryAnimation(){
 
 locomotiveAnimation()
 loadingAnimation();
-sheryAnimation()
 crsrAnimation();
+sheryAnimation()

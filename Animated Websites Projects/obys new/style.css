@@ -21,6 +21,7 @@ body {
     scale: 2;
     mix-blend-mode: difference;
 }
+
 #loader {
     height: 100%;
     width: 100%;
@@ -28,6 +29,12 @@ body {
     z-index: 9999;
     background-color: #030303;
     padding: 25vh 10vw;
+}
+.underline {
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+    /* margin: 8vw 0; */
 }
 
 .line {
@@ -114,6 +121,7 @@ body {
     position: relative;
     background-color: #151515;
     z-index: 99;
+    
 }
 
 #page1 {
@@ -260,7 +268,6 @@ body {
 
 #page3 .underline {
     margin-left: 28vw;
-
 }
 #image-div-container {
     /* background-color: red; */
@@ -277,7 +284,7 @@ body {
     width: 31vw;
     position: relative;
     overflow: hidden;
-    /* flex-shrink: 0; */
+    flex-shrink: 0;
     margin: 1vw;
     /* background-color: blue; */
 }
@@ -356,4 +363,268 @@ body {
     transition: all ease 0.5s;
     transition-delay: 0.3s;
     opacity: 0;
+}
+.page3-circle1:hover .circle-in{
+    scale: 1;
+}
+
+.page3-circle1:hover p{
+    scale: 1;
+    opacity: 1;
+}
+
+.page3-circle2:hover .circle-in {
+    scale: 1;
+}
+
+.page3-circle2:hover p {
+    scale: 1;
+    opacity: 1;
+}
+
+
+._canvas_container{ /* important for shery imageEffect */
+    z-index: 999999 !important;
+    pointer-events: none;
+}
+
+#page4 {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    /* background-color: rgb(61, 61, 61); */
+    padding: 7vh 0;
+}
+
+#page4-content {
+    width: 72vw;
+    position: relative;
+
+    margin-left: 28%;
+}
+
+#page4-content h1 {
+    font-size: 7vw;
+    text-transform: uppercase;
+    position: relative;
+}
+
+#page4-content h1::before {
+    content: "03";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: -12%;
+    top: 8%;
+}
+
+#page4-content .underline {
+    margin: 5vh 0;
+}
+
+#page4-content > p {
+    font-size: 2.05vw;
+    width: 50%;
+    margin-bottom: 3vw;
+}
+
+#page4-flex {
+    display: flex;
+}
+
+#page4-flex img {
+    width: 48%;
+}
+
+#page4-flex p {
+    font-size: 0.9vw;
+    width: 19%;
+    margin-left: 1vw;
+}
+
+#page4-blue-div {
+    background-color: #3F7DF4;
+    width: 33vw;
+    padding: 3vw;
+    position: relative;
+    margin-top: -35vh;
+    margin-left: 26vw;
+}
+
+.blue-div-elem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    /* background-color: red; */
+    padding: 1.7vw 0;
+    border-bottom: 2px solid #ffffff94;
+}
+
+.blue-div-elem h4 {
+    font-size: 1.4vw;
+    font-weight: 500;
+}
+
+.blue-div-elem p {
+    width: 40%;
+    font-size: 0.8vw;
+}
+#page5 {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.elem {
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin-bottom: -2vw;
+}
+
+.elem h1 {
+    font-size: 7vw;
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    /* background-color: red; */
+    color: transparent;
+    display: inline-block;
+    margin-right: 16px;
+    animation-name: anime;
+    animation-duration: 17s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes anime {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 20px));
+    }
+}
+
+
+.elem2 {
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin-bottom: -2vw;
+}
+
+.elem2 h1 {
+    font-size: 7vw;
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    /* background-color: red; */
+    color: transparent;
+    display: inline-block;
+    transform: translateX(calc(-100% - 20px));
+    animation-name: anime;
+    animation-duration: 18s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+.elem span {
+    font-style: italic;
+    font-family: "silk serif";
+    color: transparent;
+}
+
+.elem2 span {
+    font-style: italic;
+    font-family: "silk serif";
+    color: transparent;
+}
+#footer {
+    height: 85vh;
+    width: 100%;
+    /* background-color: red; */
+    position: relative;
+    padding-left: 28vw;
+    margin-top: 5vw;
+    padding-right: 2vw;
+}
+
+#footer h1 {
+    font-size: 7.2vw;
+    text-transform: uppercase;
+    /* background-color: blue; */
+    position: relative;
+}
+
+#footer-text {
+    position: relative;
+    /* background-color: red; */
+}
+
+#footer-text h2 {
+    font-size: 7.2vw;
+    text-transform: uppercase;
+    position: absolute;
+    top: -10%;
+    font-weight: 500;
+    left: 0;
+    font-family: "silk serif";
+    opacity: 0;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+#footer-text h2 span {
+    font-family: "silk serif";
+    /* opacity: 0;
+    color: transparent; */
+}
+
+#footer-text::before {
+    content: "04";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: -13%;
+    top: 6%;
+}
+#footer-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-right: 15vw;
+    padding-top: 4vw;
+    margin-bottom: 6vw;
+}
+
+#footer-div h6 {
+    font-size: 0.9vw;
+    margin-bottom: 1.5vw;
+    font-weight: 500;
+}
+
+.box {
+    width: 20%;
+}
+
+#footer-div h5 {
+    font-size: 1.4vw;
+    font-weight: 500;
+    /* margin: 0.1vh 0; */
+}
+
+#footer > h5 {
+    font-weight: 500;
+    font-size: 1vw;
+}
+
+#flag {
+    height: 25vw;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    left: 0;
+    transform: translate(-50%, -50%);
 }
