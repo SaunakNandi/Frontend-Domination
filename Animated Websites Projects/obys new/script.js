@@ -222,24 +222,61 @@ function func()
     scrollTrigger: {
       trigger: "#our",
       scroller: "#main",
-      start: "top 80%",
-      end: "bottom 50%",
-      markers: true,
+      start: "top 110%",
+      end: "bottom 90%",
+      // markers: true,
       scrub: 2,
     },
-    yPercent:-100,
+    yPercent:-40,
     opacity:1,
     delay:0.2,
     duration: 0.5,
     ease: Power2
   })
+  gsap.to('#page3 .underline',{
+    scrollTrigger: {
+      trigger: "#page3 .underline",
+      scroller: "#main",
+      start: "top 110%",
+      end: "bottom 90%",
+      markers: true,
+      scrub: 2,
+    },
+    width:'100%',
+    // delay:0.2,
+    duration: 1,
+    // ease: Power2
+  })
 }
 
+function scroll()
+{
+  // gsap.registerPlugin(ScrollTrigger);
+const underline = document.querySelector('.underline');
 
+// Create the ScrollTrigger to trigger the animation
+ScrollTrigger.create({
+  trigger: '#page3 .underline',
+  // scroller: '#main',
+  start: 'top 50%',
+  end: 'bottom 50%',
+  markers: true,
+  onEnter: () => {
+    gsap.to('#page3 .underline', {
+      width: '100%',
+      duration: 1,
+      scaleX: -1,
+      ease: Power2
+    })
+  },
+  onLeaveBack: () => console.log("left")
+});
+}
 locomotiveAnimation()
 loadingAnimation()
 sheryAnimation()
 cursorAnimation()
 flagAnimation()
+//scroll()
 func()
 footerAnimation()
