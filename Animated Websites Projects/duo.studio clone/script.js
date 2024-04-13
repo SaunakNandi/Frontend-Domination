@@ -144,7 +144,7 @@ boxes.forEach((box)=>{
     crsr.style.mixBlendMode="normal"
   })
   box.addEventListener("mouseleave",()=>{
-    box.style.backgroundColor="transparent"
+    // box.style.backgroundColor="transparent"
     crsr.style.backgroundImage="none"
     crsr.style.borderRadius="50%"
     crsr.style.height= "15px";
@@ -166,3 +166,16 @@ h4.forEach((elem)=>{
     purple.style.opacity="0"
   })
 })
+
+function playVideo()
+{
+  const video=document.querySelector('.page3-part1 video')
+
+  video.addEventListener('mouseenter',()=>{
+    video.play()
+  })
+  video.addEventListener('mouseleave',()=>{
+    video.pause()
+  })
+}
+playVideo()
