@@ -282,7 +282,7 @@ body {
     position: absolute;
     right: 0;
     width: 0;
-    background-color: blue;
+    /* background-color: blue; */
 }
 #image-div-container{
     /* background-color: blue; */
