@@ -191,7 +191,7 @@ function flagAnimation() {
 }
 
 function footerAnimation() {
-  
+
   document.querySelector("#footer-text").addEventListener("mouseenter", function () {
     gsap.to("#footer h1", {
       opacity: 0,
@@ -217,32 +217,37 @@ function footerAnimation() {
   })
 }
 
+
 function func()
 {
   
-  var tl=gsap.timeline({
+  gsap.to("#our", {
     scrollTrigger: {
-      trigger: "#page3",
-      scroller: "#main",
-      start: "top 110%",
-      end: "bottom 90%",
-      // markers: true,
-      once:true,
-      scrub: 2,
-    }
-  })
-  tl.to('#our',{
-    yPercent:-40,
-    opacity:1,
-    duration: 0.3,
-    ease: Power2,
-    once:true
-  },"flag").to('#under',{
+      trigger: "#our",
+      scroller: '#main',
+      start: "top 120%", // adjust this threshold as needed
+      markers: true,
+      once: true, // only play the animation once
+    },
+    opacity: 1,
+    yPercent: -140,
+    duration:0.8,
+    
+  });
+  gsap.to("#under", {
+    scrollTrigger: {
+      trigger: "#under",
+      scroller: '#main',
+      start: "top 110%", // adjust this threshold as needed
+      once: true // only play the animation once
+    },
     width: "70%",
-    duration: 0.1,
-    // scaleX: -1,
-  },"flag")
+    delay:0.3,
+    duration: 0.7,
+    transformOrigin: "right",
+  });
 }
+
 
 locomotiveAnimation()
 loadingAnimation()
@@ -252,3 +257,5 @@ flagAnimation()
 //scroll()
 func()
 footerAnimation()
+
+

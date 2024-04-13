@@ -253,13 +253,15 @@ body {
     margin-top: 20vh;
 }
 
-#page3>h1 {
+#our {
     font-size: 7vw;
     text-transform: uppercase;
-    position: relative;
+    /* position: relative; */
     margin-left: 28vw;
     margin-top: 5vh;
     opacity: 0;
+    transform: translateY(150%);
+    /* transition: opacity 0.6s ease-in, transform 0.5s ease; */
 }
 
 #page3 #our::before {
@@ -276,56 +278,17 @@ body {
 
 #page3 .underline {
     margin-left: 20vw;
-    margin-top: 0;
+    margin-top: 5vh;
     position: absolute;
     right: 0;
     width: 0;
     background-color: blue;
 }
-/* #image-div-container {
-    background-color: red;
-    padding: 1vw;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-top: 6vh;
-}
-.container{
-    height: 46vw;
-    width: 31vw;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.image-div {
-    height: 42vw;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-    margin: 1vw;
-    background-color: blue;
-}
-
-.image-div:nth-child(1) {
-    height: 29vw;
-    width: 21vw;
-}
-
-.image-div img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-} */
-
 #image-div-container{
     /* background-color: blue; */
     position: relative;
     padding: 1vw;
-    margin-top: 6vh;
+    margin-top: 14vh;
     display: flex;
     flex-wrap: wrap;
     gap: 4vw;
