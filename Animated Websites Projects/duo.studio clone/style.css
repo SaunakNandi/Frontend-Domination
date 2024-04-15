@@ -28,13 +28,6 @@ body {
   cursor: none;
 }
 
-.page1 {
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
-  /* z-index: 9; */
-  padding-top: 12vw;
-}
 #purple{
   height: 100vh;
   width: 100%;
@@ -82,6 +75,13 @@ body {
   border-bottom: 2px solid white;
 }
 
+.page1 {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  /* z-index: 9; */
+  padding-top: 12vw;
+}
 .page1 > h1 {
   font-size: 8vw;
   font-family: "PP mori";
@@ -97,7 +97,7 @@ body {
 }
 
 .page1 video {
-  width: 60%;
+  width: 50%;
 
   margin-top: 15vh;
   position: relative;
@@ -155,7 +155,7 @@ body {
 .page3 {
   min-height: 130vh;
   width: 100%;
-  background-color: #edbfff;
+  /* background-color: #edbfff; */
   position: relative;
   padding-top: 100px;
 }

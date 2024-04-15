@@ -70,6 +70,17 @@ body[theme="white"] .section {
   right: 2%;
   /* top: 40%; */
 }
-.jump-arrow{
-  font-size: 24px;
+
+.down-arrow{
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.down-arrow i{
+  font-size: 40px;
+  padding: 10px;
+  color: white;
 }

@@ -84,14 +84,15 @@ var tl2 = gsap.timeline({
     scroller: "#main",
     // markers: true,
     start: "top -110%",
-    end: "top -120%",
-    scrub: 1,
+    end: "top -117%",
+    scrub: 2,
   },
 });
 tl2.to(
   "#main",
   {
     backgroundColor: "#fff",
+    ease:Power4
   },
   "change"
 );
@@ -106,16 +107,19 @@ var tl3 = gsap.timeline({
   scrollTrigger: {
       trigger: ".page1 h1",
       scroller: "#main",
-      // markers:true,
-      start: "top -280%",
-      end: "top -300%",
-      scrub: "3"
+      markers:true,
+      start: "top -200%",
+      end: "top -220%",
+      scrub: 3
   }
 })
 
+tl3.to('.page3 h1',{
+  color:"#fff"
+},"change")
 tl3.to("#main",{
   backgroundColor:"#0F0D0D"
-})
+},"change")
   function showImages(h1) {
     const images = h1.parentNode.parentNode.querySelectorAll('.elem img');
     images.forEach(img => {

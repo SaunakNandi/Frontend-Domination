@@ -1,3 +1,67 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const jumpArrow = document.querySelector('.down-arrow');
+  const pages = document.querySelectorAll('.parent-div');
+  const pageIds = Array.from(pages).map(page => page.id); // Array of page IDs
+  let currentPageIndex = 0;
+  
+  // Function to show or hide jump arrow based on scroll position
+  function toggleJumpArrow() {
+    if (currentPageIndex < pages.length - 1) {
+      jumpArrow.style.display = 'initial';
+    } else {
+      jumpArrow.style.display = 'none';
+    }
+  }
+
+  // Initial call to toggle jump arrow visibility
+  toggleJumpArrow();
+
+  // Function to determine the current page index based on scroll position
+  function getCurrentPageIndex() {
+    for (let i = 0; i < pages.length; i++) {
+      const page = pages[i];
+      const pageTop = page.offsetTop;
+      const pageBottom = pageTop + page.offsetHeight;
+      const windowTop = window.scrollY;
+      const windowBottom = windowTop + window.innerHeight;
+
+      if (windowTop >= pageTop && windowBottom <= pageBottom) {
+        return i;
+      }
+    }
+    return -1; // No page found
+  }
+
+  // Scroll event listener to update jump arrow visibility and detect current page
+  window.addEventListener('scroll', function() {
+    currentPageIndex = getCurrentPageIndex();
+    console.log(currentPageIndex)
+    toggleJumpArrow();
+
+    // Log the ID of the current page
+    if (currentPageIndex !== -1) {
+      console.log("Current page:", pageIds[currentPageIndex]);
+    }
+  });
+
+  // Function to handle scrolling to the next page
+  function scrollToNextPage() {
+    if (currentPageIndex < pages.length - 1) {
+      currentPageIndex++;
+      toggleJumpArrow()
+      pages[currentPageIndex].scrollIntoView({ behavior: 'smooth' });
+    }
+    if(currentPageIndex>=2) currentPageIndex=0
+  }
+
+  // Click event listener on the jump arrow to scroll to the next page
+  jumpArrow.addEventListener('click', function() {
+    scrollToNextPage();
+  });
+});
+
+
+
 function homePageAnimation() {
   gsap.set(".slidesm", {
     scale: 5,
@@ -123,7 +187,7 @@ function capsuleAnimation() {
 function bodyColorChange()
 {
   document.querySelectorAll(".section").forEach(function (e){
-    console.log(e.dataset)
+    // console.log(e.dataset)
     
     ScrollTrigger.create({
       trigger:e,
@@ -141,36 +205,12 @@ function bodyColorChange()
 }
 
 function jumpToNextParent(element) {
+  console.log(element.parentElement.nextElementSibling)
   var parent = element.parentElement.nextElementSibling;
   if (parent) {
       parent.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
-// document.querySelectorAll(".card").forEach((x)=>{
-//   ScrollTrigger.create({
-//     trigger:x,
-//     start:"top 60%",
-//     end:"bottom -20%",
-//     markers:true,
-//     // scrub: 1,
-//     onEnter:()=>{
-//       x.style.width='90%'
-//       x.style.backgroundColor='black'
-//       x.style.color='white'
-//       x.style.transition='all ease-out 0.5s'
-//     },
-//     onLeave: () => {
-//       x.style.width='70%'
-//       x.style.backgroundColor='transparent'
-//       x.style.color='white'
-//     },
-//     onEnterBack:()=>{
-//       x.style.width='70%'
-//       x.style.backgroundColor='transparent'
-//       x.style.color='white'
-//     }
-//   })
-// })
 
 var tl2 = gsap.timeline({
   scrollTrigger: {
@@ -207,6 +247,8 @@ tl2.to('.card1',{
     color:"white",
     // duration:0.1,
   })
+
+
 
 homePageAnimation();
 slider();
