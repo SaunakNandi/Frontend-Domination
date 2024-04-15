@@ -1,11 +1,15 @@
+const jumpArrow = document.querySelector('.down-arrow');
+
 document.addEventListener('DOMContentLoaded', function() {
-  const jumpArrow = document.querySelector('.down-arrow');
   const pages = document.querySelectorAll('.parent-div');
   const pageIds = Array.from(pages).map(page => page.id); // Array of page IDs
   let currentPageIndex = 0;
   
   // Function to show or hide jump arrow based on scroll position
   function toggleJumpArrow() {
+    // if(currentPageIndex===-1)
+    //   jumpArrow.style.display='none'
+    // else 
     if (currentPageIndex < pages.length - 1) {
       jumpArrow.style.display = 'initial';
     } else {
@@ -14,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Initial call to toggle jump arrow visibility
-  toggleJumpArrow();
+  //toggleJumpArrow();
 
   // Function to determine the current page index based on scroll position
   function getCurrentPageIndex() {
@@ -24,6 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const pageBottom = pageTop + page.offsetHeight;
       const windowTop = window.scrollY;
       const windowBottom = windowTop + window.innerHeight;
+      
+      // console.log("page ",page)
+      // console.log("pageTop ",pageTop)
+      // console.log("pageBottom ",pageBottom)
+      // console.log("windowTop ",windowTop)
+      // console.log("windowBottom ",windowBottom)
 
       if (windowTop >= pageTop && windowBottom <= pageBottom) {
         return i;
@@ -41,13 +51,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Log the ID of the current page
     if (currentPageIndex !== -1) {
       console.log("Current page:", pageIds[currentPageIndex]);
+      console.log("currentPageIndex ",currentPageIndex)
+      toggleJumpArrow();
     }
   });
 
   // Function to handle scrolling to the next page
   function scrollToNextPage() {
+    let currentPage=getCurrentPageIndex()
+    console.log("this is current page ",currentPage)
     if (currentPageIndex < pages.length - 1) {
       currentPageIndex++;
+      console.log("When jumped to next page ",currentPageIndex)
       toggleJumpArrow()
       pages[currentPageIndex].scrollIntoView({ behavior: 'smooth' });
     }
@@ -187,7 +202,7 @@ function capsuleAnimation() {
 function bodyColorChange()
 {
   document.querySelectorAll(".section").forEach(function (e){
-    // console.log(e.dataset)
+    // console.log(e.dataset.color)
     
     ScrollTrigger.create({
       trigger:e,
@@ -195,6 +210,7 @@ function bodyColorChange()
       end:"bottom 50%",
       scrub: 1,
       onEnter:()=>{
+        // jumpArrow.style.display='none'
         document.body.setAttribute("theme",e.dataset.color)
       },
       onEnterBack:()=>{
