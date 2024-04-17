@@ -14,9 +14,9 @@ window.addEventListener('scroll', function() {
   const page3Rect = document.getElementById('page3').getBoundingClientRect();
   const page4Rect = document.getElementById('page4').getBoundingClientRect();
   const page5Rect = document.getElementById('page5').getBoundingClientRect();
-
+  console.log(downArrowRect," ",page2Rect," ",page3Rect)
   // Raise an alert message showing the id of the page currently touched
-  if (page1Rect.top >= 0 && page1Rect.top <= window.innerHeight) {
+  if (downArrowRect.top <= page1Rect.bottom && downArrowRect.top > page1Rect.top) {
     downArrow.style.display='initial'
     currentPageId = 'page1';
   }
