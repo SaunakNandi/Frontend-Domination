@@ -78,6 +78,8 @@ body[theme="white"] .section {
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 999;
+  display: initial;
 }
 .down-arrow i{
   font-size: 40px;

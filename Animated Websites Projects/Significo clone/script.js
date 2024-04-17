@@ -1,80 +1,58 @@
-const jumpArrow = document.querySelector('.down-arrow');
 
-document.addEventListener('DOMContentLoaded', function() {
-  const pages = document.querySelectorAll('.parent-div');
-  const pageIds = Array.from(pages).map(page => page.id); // Array of page IDs
-  let currentPageIndex = 0;
+const downArrow = document.querySelector('.down-arrow');
+
+const downArrowAnchor = document.querySelector('.down-arrow a');
+let currentPageId='page1'
+// Get the position of each page relative to the viewport
+
+// Add event listener to the window's scroll event
+window.addEventListener('scroll', function() {
+  // Get the position of the .down-arrow relative to the viewport
+  const downArrowRect = downArrow.getBoundingClientRect();
+  const page1Rect = document.getElementById('page1').getBoundingClientRect();
+  const page2Rect = document.getElementById('page2').getBoundingClientRect();
+  const page3Rect = document.getElementById('page3').getBoundingClientRect();
+  const page4Rect = document.getElementById('page4').getBoundingClientRect();
+  const page5Rect = document.getElementById('page5').getBoundingClientRect();
+
+  // Raise an alert message showing the id of the page currently touched
+  if (page1Rect.top >= 0 && page1Rect.top <= window.innerHeight) {
+    downArrow.style.display='initial'
+    currentPageId = 'page1';
+  }
+  else if (downArrowRect.top <= page2Rect.bottom && downArrowRect.top > page2Rect.top) {
+    downArrow.style.display='initial'
+    currentPageId = 'page2';
+    console.log(currentPageId);
+  } else if (downArrowRect.top <= page3Rect.bottom && downArrowRect.top > page3Rect.top) {
+    downArrow.style.display='none'
+    currentPageId = 'page3';
+    console.log(currentPageId);
+  } else if (downArrowRect.top <= page4Rect.bottom && downArrowRect.top > page4Rect.top) {
+    currentPageId = 'page4';
+    downArrow.style.display='none'
+    console.log(currentPageId);
+  } else if (downArrowRect.top < page5Rect.bottom && downArrowRect.top > page5Rect.top) {
+    currentPageId = 'page5';
+    downArrow.style.display='none'
+    console.log(currentPageId);
+  }
   
-  // Function to show or hide jump arrow based on scroll position
-  function toggleJumpArrow() {
-    // if(currentPageIndex===-1)
-    //   jumpArrow.style.display='none'
-    // else 
-    if (currentPageIndex < pages.length - 1) {
-      jumpArrow.style.display = 'initial';
-    } else {
-      jumpArrow.style.display = 'none';
-    }
-  }
 
-  // Initial call to toggle jump arrow visibility
-  //toggleJumpArrow();
-
-  // Function to determine the current page index based on scroll position
-  function getCurrentPageIndex() {
-    for (let i = 0; i < pages.length; i++) {
-      const page = pages[i];
-      const pageTop = page.offsetTop;
-      const pageBottom = pageTop + page.offsetHeight;
-      const windowTop = window.scrollY;
-      const windowBottom = windowTop + window.innerHeight;
-      
-      // console.log("page ",page)
-      // console.log("pageTop ",pageTop)
-      // console.log("pageBottom ",pageBottom)
-      // console.log("windowTop ",windowTop)
-      // console.log("windowBottom ",windowBottom)
-
-      if (windowTop >= pageTop && windowBottom <= pageBottom) {
-        return i;
-      }
-    }
-    return -1; // No page found
-  }
-
-  // Scroll event listener to update jump arrow visibility and detect current page
-  window.addEventListener('scroll', function() {
-    currentPageIndex = getCurrentPageIndex();
-    console.log(currentPageIndex)
-    toggleJumpArrow();
-
-    // Log the ID of the current page
-    if (currentPageIndex !== -1) {
-      console.log("Current page:", pageIds[currentPageIndex]);
-      console.log("currentPageIndex ",currentPageIndex)
-      toggleJumpArrow();
-    }
-  });
-
-  // Function to handle scrolling to the next page
-  function scrollToNextPage() {
-    let currentPage=getCurrentPageIndex()
-    console.log("this is current page ",currentPage)
-    if (currentPageIndex < pages.length - 1) {
-      currentPageIndex++;
-      console.log("When jumped to next page ",currentPageIndex)
-      toggleJumpArrow()
-      pages[currentPageIndex].scrollIntoView({ behavior: 'smooth' });
-    }
-    if(currentPageIndex>=2) currentPageIndex=0
-  }
-
-  // Click event listener on the jump arrow to scroll to the next page
-  jumpArrow.addEventListener('click', function() {
-    scrollToNextPage();
-  });
+  // Check if the .down-arrow touches the bottom border of the window
+  // if (downArrowRect.bottom >= window.innerHeight) {
+  //   // Raise an alert message indicating the border is touched
+  //   alert('The down-arrow touched the border line');
+  // }
 });
-
+function jumpToNextParent()
+{
+  if (currentPageId==='page1' || currentPageId==='page2') {
+    const nextPageId = 'page' + (parseInt(currentPageId.substring(4)) + 1);
+    downArrowAnchor.href = 'http://127.0.0.1:5500/Significo%20clone/index.html#' + nextPageId;
+    console.log(nextPageId)
+  }
+}
 
 
 function homePageAnimation() {
@@ -220,13 +198,13 @@ function bodyColorChange()
   })
 }
 
-function jumpToNextParent(element) {
-  console.log(element.parentElement.nextElementSibling)
-  var parent = element.parentElement.nextElementSibling;
-  if (parent) {
-      parent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
+// function jumpToNextParent(element) {
+//   console.log(element.parentElement.nextElementSibling)
+//   var parent = element.parentElement.nextElementSibling;
+//   if (parent) {
+//       parent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+//   }
+// }
 
 var tl2 = gsap.timeline({
   scrollTrigger: {

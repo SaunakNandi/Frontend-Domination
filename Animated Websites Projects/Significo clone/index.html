@@ -13,7 +13,7 @@
   <body theme="black">
     <div class="main w-full relative">
       
-      <div data-color="black" id="page1" class="parent-div home section w-full h-[200vh] relative">
+      <div data-color="black" id="page1" class="parent-div home section w-full h-[200vh] relative ">
         <div class="w-full sticky top-0 left-0">
           <div class="btmtext absolute bottom-[7%] left-[3%] z-[4] w-52">
             We build big ideas. Software. Apps. Tools. For real people. Real
@@ -376,13 +376,14 @@
             </div>
           </div>
         </div>
-        <div class="down-arrow z-[5]">
-          <i class="ri-arrow-down-line"></i>
+        <div class="down-arrow" onclick="jumpToNextParent()">
+          <a href="#"><i class="ri-arrow-down-line"></i></a>
+          
         </div>
         <!-- <a href="#" class="jump-arrow" onclick="jumpToNextParent(this)"><i class="ri-message-2-fill"></i></a> -->
       </div>  
       <!-- Change h-300vh for smaller devices else the down arrow will not get hide for this page -->
-      <div data-color="cyan" id="page2" class="parent-div craft section w-full h-[300vh] flex gap-10 justify-between items-start px-10 py-10">
+      <div data-color="cyan" id="page2" class="parent-div craft section w-full h-[180vh] flex gap-10 justify-between items-start px-10 py-10">
         <div class="abc ltext w-[40%] sticky top-0 left-0">
           <p class="text-2xl leading-9 font-light">
             Significo is a leading health software creator founded on the belief
@@ -523,7 +524,7 @@
           </div>
         </div>
       </div>
-      <div data-color="white" class="team section font-['Pp_Neue_Machina'] py-20">
+      <div data-color="white" id="page4" class="parent-div team section font-['Pp_Neue_Machina'] py-20">
         <h1 class="text-center tracking-tight text-8xl">Our team</h1>
         <div class="list w-full px-10 mt-10">
           <!-- Make the table behind the image -->
@@ -608,7 +609,7 @@
           </div>
         </div>
       </div>
-      <div data-color="white" class="para w-full h-[70vh] flex items-center justify-center section">
+      <div data-color="white" id="page5" class="parent-div para w-full h-[70vh] flex items-center justify-center section">
         <div class="text w-[70%] flex flex-col items-center justify-center">
           <h3 class="textpara text-3xl font-light text-center leading-[2.8rem]">
             Working with the Significo team has been such a pleasure! We took on
@@ -633,7 +634,7 @@
           </div>
         </div>
       </div>
-      <div data-color="white" class="section capsules w-full h-screen mt-60 flex items-start justify-between px-32">
+      <div data-color="white" class="parent-div section capsules w-full h-screen mt-60 flex items-start justify-between px-32">
         <div class="left w-1/4 h-full flex flex-col justify-between py-10">
           <h1 class="leading-[2.7rem] text-3xl">
             Stay up-to-date on the latest healthcare innovations and thought
