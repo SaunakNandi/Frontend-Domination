@@ -1,5 +1,5 @@
 {
-  "name": "form-handling-prac",
+  "name": "router-dom",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,7 +12,6 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.51.3",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
