@@ -1,0 +1,1 @@
+1> hmara data actually main app component mein hoga aur hum use props ke through pass karenge cards mein, har card mein, har card par ek add friend button hoga and hmein add friend button par click hoga and hmein add friend button par click hoga and hmein add friend button
