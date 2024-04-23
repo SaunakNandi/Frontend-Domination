@@ -9,8 +9,13 @@ const Routing = () => {
     return (
         <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/user/" element={<User/>}/>
-            <Route path="/user/:name" element={<UserDetails/>}/>
+            <Route path="/user/" element={<User/>}>
+                {/* Now this become a child of User 
+                :name make this a a dynamic route*/}
+                <Route path="/user/:name" element={<UserDetails/>}/> 
+            </Route>
+            {/* <Route path="/user/:name" element={<UserDetails/>}/> */}
+
             <Route path="/about" element={<About/>}/>
         </Routes>
     );

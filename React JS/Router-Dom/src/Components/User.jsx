@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Outlet} from 'react-router-dom'
 const User = () => {
   return (
     <div className='w-1/2 m-auto mt-10'>
@@ -9,6 +9,10 @@ const User = () => {
           <Link className='p-3 bg-red-200 text-2xl mb-3 hover:bg-red-300' to="/user/derek">Derek</Link>
           <Link className='p-3 bg-red-200 text-2xl mb-3 hover:bg-red-300' to="/user/miko">Miko</Link>
         </div>
+        <hr />
+
+      {/* Outlet will help to open the child components here */}
+        <Outlet/>
     </div>
   )
 }
