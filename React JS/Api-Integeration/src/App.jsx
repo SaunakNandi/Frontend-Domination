@@ -1,45 +1,28 @@
 import { useState } from 'react'
 
-import './App.css'
-import axios from 'axios'
+import Home from './components/Home'
+import Show from './components/Show'
+import Service from './components/Service'
+import {Link,Route,Routes} from 'react-router-dom'
 
 function App() {
 
-  cosnt [products,setProducts] =useState([])
-  const getProducts = () =>{
-    const api="https://fakestoreapi.com/products"
-    axios.get(api).then(products => {
-      console.log(products)
-      setProducts(products.data)
-    }).catch(err=> console.log(err))
-  }
-  const addProducts = () =>{
-    const api="https://fakestoreapi.com/products"
-    axios.post(api,{
-      title:"test product",
-      price:13.5,
-      description: "lorem ipsum",
-      image:"https://i.pravatar.cc",
-      category:"electronic"
-    }).then(res => {
-      console.log(res)
-    }).catch(err=> console.log(err))
-  }
-  return (
-    <>
+  <>
       <div className='pt-[5%] pl-[5%]'>
-        <button onClick={getProducts} className='px-2 py-5 bg-red-300 rounded-md'>Call Products</button>
-        <br />
-        <br />
-        <button onClick={addProducts} className='px-2 py-5 bg-red-300 rounded-md'>Save Item</button>
-        <hr className='my-10'/>
-        <ul>
-          <li className='rounded w-1/4 p-5 bg-red-100'>Product Name</li>
-          <li>Product Name</li>
-        </ul>
+        <nav className='flex justify-center gap-10'>
+          <Link to="/">Home</Link>
+          <Link to="/service">Service</Link>
+          <Link to="/show">Show</Link>
+        </nav>
+        <hr />
+
+        <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/show" element={<Show/>}></Route>
+          <Route path="/service" element={<Service/>}></Route>
+        </Routes>
       </div>
     </>
-  )
 }
 
 export default App
