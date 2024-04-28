@@ -5,8 +5,9 @@ import Loading from './Loading'
 
 const Details = () => {
   const [item,setItems]=useState()
-  const {id}=useParams()
- 
+  let {id}=useParams()
+  id = String(Number(id) + 1);
+  console.log(typeof(id)," ",id)
   const getSingleProduct=async()=>{
     try{
       const {data}=await axios.get(`/products/${id}`)
@@ -25,6 +26,7 @@ const Details = () => {
   return (
     item?(
     <div className='w-[70%] h-full container m-auto p-[10%] flex items-center justify-start gap-[10%]'>
+
         <img className='h-[80%] w-[40%] object-contain'
          src={`${item.image}`} alt="" />
         <div className="content w-[50%] mb-[8%]">

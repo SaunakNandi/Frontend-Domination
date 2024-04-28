@@ -26,7 +26,9 @@ const Home = () => {
   
   useEffect(()=>
   {
-    if(!filteredProducts || !search)
+    // if(!filteredProducts || !search)  // if you use this then put search on useEffect dependency array
+    //   setfilteredProducts(products)
+    if(!filteredProducts || category==='undefined')
       setfilteredProducts(products)
     else if(category!= "undefined") 
       get_product_category()
@@ -38,9 +40,8 @@ const Home = () => {
         <Nav/>
         <div className="w-[85%] p-10 pt-[4%] flex flex-wrap">
 
-          { filteredProducts &&
-            filteredProducts.map((x,ind)=>(
-            <Link key={ind} to={`/details/${ind}`} className='mb-3 mr-3 card p-3 border shadow-orange-200 rounded-sm w-[18%] h-[35vh] flex justify-center flex-col'>
+          { filteredProducts.map((x)=>(
+            <Link key={x.id} to={`/details/${String(Number(x.id) - 1)}`} className='mb-3 mr-3 card p-3 border shadow-orange-200 rounded-sm w-[18%] h-[35vh] flex justify-center flex-col'>
               <div className='hover:scale-110 w-full h-[80%] bg-contain bg-no-repeat bg-center mb-3'
               style={{backgroundImage:`url(${x.image})`}}></div>
               <h1 className='hover:text-blue-300'>{x.title}</h1>
