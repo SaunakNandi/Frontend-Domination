@@ -6,9 +6,10 @@ import Loading from './Loading'
 import axios from '../utils/axios'
 const Home = () => {
   const [products]=useContext(ProductContext)
-  console.log(products)
+  //console.log(products)
 
   const {search} = useLocation()
+  // console.log(search)
   const category = decodeURIComponent(search.split("=")[1])
   const [filteredProducts,setfilteredProducts]=useState(null)
   const get_product_category = async()=>{
@@ -31,7 +32,10 @@ const Home = () => {
     if(!filteredProducts || category==='undefined')
       setfilteredProducts(products)
     else if(category!= "undefined") 
-      get_product_category()
+    {
+      // get_product_category()
+      setfilteredProducts(products.filter(p=>p.category==category))
+    }
   },[category,products])
   return (
     filteredProducts?
@@ -41,7 +45,7 @@ const Home = () => {
         <div className="w-[85%] p-10 pt-[4%] flex flex-wrap">
 
           { filteredProducts.map((x)=>(
-            <Link key={x.id} to={`/details/${String(Number(x.id) - 1)}`} className='mb-3 mr-3 card p-3 border shadow-orange-200 rounded-sm w-[18%] h-[35vh] flex justify-center flex-col'>
+            <Link key={x.id} to={`/details/${x.id}`} className='mb-3 mr-3 card p-3 border shadow-orange-200 rounded-sm w-[18%] h-[35vh] flex justify-center flex-col'>
               <div className='hover:scale-110 w-full h-[80%] bg-contain bg-no-repeat bg-center mb-3'
               style={{backgroundImage:`url(${x.image})`}}></div>
               <h1 className='hover:text-blue-300'>{x.title}</h1>

@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { ProductContext } from '../utils/Context'
-import { nanoid } from 'nanoid' 
 import { useNavigate } from 'react-router-dom'
-const Create = () => {
+const Edit = () => {
     const navigate=useNavigate()
     const [products,setProducts]=useContext(ProductContext)
     const [title,setTitle]=useState("")
@@ -41,8 +40,9 @@ const Create = () => {
         console.log(products)
     }
   return (
-    <form onSubmit={AddProductHandler} className='p-[5%] w-screen h-screen flex flex-col items-center'>
-        <h1 className="mb-5 w-1/2 text-3xl">Add New Product</h1>
+    <div>
+        <form onSubmit={AddProductHandler} className='p-[5%] w-screen h-screen flex flex-col items-center'>
+        <h1 className="mb-5 w-1/2 text-3xl">Update Product</h1>
         <input type="url" placeholder='image link' className='text-3xl bg-zinc-300 rounded-md p-3 w-1/2 mb-3'
         onChange={(e)=> setImage(e.target.value)}
         value={image}/>
@@ -66,7 +66,8 @@ const Create = () => {
          </div>
 
     </form>
+    </div>
   )
 }
 
-export default Create
+export default Edit
