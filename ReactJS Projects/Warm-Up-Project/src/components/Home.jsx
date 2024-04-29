@@ -6,7 +6,7 @@ import Loading from './Loading'
 import axios from '../utils/axios'
 const Home = () => {
   const [products]=useContext(ProductContext)
-  //console.log(products)
+  console.log(products)
 
   const {search} = useLocation()
   // console.log(search)
