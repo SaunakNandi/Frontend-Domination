@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { ProductContext } from '../utils/Context'
 import { nanoid } from 'nanoid' 
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 const Create = () => {
     const navigate=useNavigate()
     const [products,setProducts]=useContext(ProductContext)
@@ -34,11 +35,10 @@ const Create = () => {
             description,
         }
         setProducts([...products,product])
-        resetFormFields()
         localStorage.setItem("products",JSON.stringify([...products,product]))
+        toast.success("New Product Added")
         navigate("/")
-        // toast.success("New Product Added")
-        console.log(products)
+        // console.log(products)
     }
   return (
     <form onSubmit={AddProductHandler} className='p-[5%] w-screen h-screen flex flex-col items-center'>

@@ -9,8 +9,13 @@ const Context = (props) => {
     )
     const getProducts=async()=>{
         try{
-            const {data}=await axios("/products")
-            setProducts(data)
+            if(!localStorage.getItem("products"))
+            {
+                console.log("called")
+                const {data}=await axios("/products")
+                localStorage.setItem("products",data)
+                setProducts(data)
+            }
         }
         catch(err)
         {

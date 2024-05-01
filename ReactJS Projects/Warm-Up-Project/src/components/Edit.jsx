@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ProductContext } from '../utils/Context'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 const Edit = () => {
     
     const [products,setProducts]=useContext(ProductContext)
@@ -15,11 +15,6 @@ const Edit = () => {
     })
     
     
-    const [title,setTitle]=useState("")
-    const [image,setImage]=useState("")
-    const [category,setCategory]=useState("")
-    const [price,setPrice]=useState("")
-    const [description, setDescription]=useState("")
     
     const changeHandler=((e)=>{
         // console.log(e.target.name,e.target.value)
@@ -47,18 +42,19 @@ const Edit = () => {
         }
         const pi= products.findIndex((p)=>p.id==id)
         const copyData=[...products]
-        copyData[pi]={...products[pi],...product} // explained at 2:47:03
-        // setProducts([...products,product])
-        // resetFormFields()
-        // localStorage.setItem("products",JSON.stringify([...products,product]))
-        // navigate("/")
+        console.log(product)
+        copyData[pi]={...products[pi],...product} // explained at 2:46:03
+        // console.log(products,pi)
+
+        setProducts(copyData)
+        localStorage.setItem("products",JSON.stringify([...products,product]))
+        navigate("/")
         // // toast.success("New Product Added")
-        // console.log(products)
     }
   return (
     <div>
         <form onSubmit={AddProductHandler} className='p-[5%] w-screen h-screen flex flex-col items-center'>
-        <h1 className="mb-5 w-1/2 text-3xl">Update Product</h1>
+        <h1 className="mb-5 w-1/2 text-3xl">Edit</h1>
         <input type="url" placeholder='image link' className='text-3xl bg-zinc-300 rounded-md p-3 w-1/2 mb-3'
         name='image'
         onChange={changeHandler}
@@ -77,14 +73,15 @@ const Edit = () => {
             onChange={changeHandler}
             value={product && product.price}/>
         </div>
-        <textarea className='text-3xl bg-zinc-300 rounded-md p-3 w-1/2 mb-3'
+        <textarea className='text-2xl bg-zinc-300 rounded-md p-3 w-1/2 mb-3'
+        rows='8'
          placeholder='Description' 
          name='description'
          onChange={e => changeHandler}
           value={product && product.description}></textarea>
          <div className="w-1/2">
             <button className="py-2 px-5 border rounded border-blue-200 text-blue-300">
-                Add New Product
+            Update Product
             </button>
          </div>
 
