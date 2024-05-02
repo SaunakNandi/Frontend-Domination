@@ -3,9 +3,7 @@ import { getProducts } from "../reducers/ProductReducer";
 
 // This is higher order function
 // function a(){
-//     return function(){
-
-//     }
+//     return function() {}
 // }
 
 // Since this is not treated as a component so we cant use useDispatch to call getProducts. Hence we are using higher order function which gives the dispatch as argument
