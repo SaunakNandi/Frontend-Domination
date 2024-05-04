@@ -5,6 +5,7 @@ import { Work } from './components/Work'
 import Stripes from './components/Stripes'
 import Products from './components/Products'
 import Marquees from './components/Marquees'
+import Cards from './components/Cards'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -16,6 +17,7 @@ function App() {
         <Stripes/>
         <Products/>
         <Marquees/>
+        <Cards/>
       </div>
     </>
   )
