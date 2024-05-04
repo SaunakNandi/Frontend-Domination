@@ -6,6 +6,7 @@ import Stripes from './components/Stripes'
 import Products from './components/Products'
 import Marquees from './components/Marquees'
 import Cards from './components/Cards'
+import Footer from './components/Footer'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -18,6 +19,7 @@ function App() {
         <Products/>
         <Marquees/>
         <Cards/>
+        <Footer/>
       </div>
     </>
   )
