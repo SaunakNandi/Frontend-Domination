@@ -10,3 +10,9 @@ App ->
     Blocks ->
         Block
     Footer
+
+
+Applying animations ->
+
+Smoothness handle -> locomotive js - beta
+animation of work Component

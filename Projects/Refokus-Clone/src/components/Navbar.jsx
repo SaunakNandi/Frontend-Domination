@@ -12,11 +12,11 @@ const Navbar = () => {
                     <div className="links flex gap-14 ml-20">
                         {["Home","Work","Culture","","News"].map((elem,index)=>(
                             
-                            elem.length===0? (<span className='w-[2px] h-10 bg-zinc-700'></span>):
+                            elem.length===0? (<span className='w-[2px] h-10 bg-zinc-700' key={index}></span>):
                             (
-                                <a href="#" className="font-regular text-sm flex items-center gap-1">
+                                <a href="#" className="font-regular text-sm flex items-center gap-1" key={index}>
                                 {index===1 && (<span style={{boxShadow:"0 0 0.25em #00FF19"}}
-                                className="inline-block w-1 h-1 bg-green-500 rounded-full"></span>)}
+                                className="inline-block w-1 h-1 bg-green-500 rounded-full" key={index}></span>)}
                                 {elem}
                                 </a>
                             )
