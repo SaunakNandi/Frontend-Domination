@@ -14,7 +14,7 @@ const Navbar = () => {
                         elem.length===0? (<span className='w-[2px] h-10 bg-zinc-700'></span>):
                         (
                             <a href="#" className="font-regular text-sm flex items-center gap-1">
-                            {index===0 && (<span style={{boxShadow:"0 0 0.25em #00FF19"}}
+                            {index===1 && (<span style={{boxShadow:"0 0 0.25em #00FF19"}}
                             className="inline-block w-1 h-1 bg-green-500 rounded-full"></span>)}
                             {elem}
                             </a>
