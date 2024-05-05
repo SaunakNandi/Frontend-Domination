@@ -3,7 +3,7 @@ import axios from './axios'
 export const ProductContext=createContext()
 
 const Context = (props) => {
-    
+    // console.log("context called")
     const [products,setProducts]=useState(
         JSON.parse(localStorage.getItem("products") || null)
     )

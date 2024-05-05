@@ -6,22 +6,12 @@ import Loading from './Loading'
 import axios from '../utils/axios'
 const Home = () => {
   const [products]=useContext(ProductContext)
-  console.log(products)
+  // console.log(products)
 
   const {search} = useLocation()
-  // console.log(search)
+   console.log(search)
   const category = decodeURIComponent(search.split("=")[1])
   const [filteredProducts,setfilteredProducts]=useState(null)
-  const get_product_category = async()=>{
-    try{
-      const {data}=await axios.get(`/products/category/${category}`)
-      setfilteredProducts(data)
-    }
-    catch(error)
-    {
-      console.log(error)
-    }
-  }
 
   // useEffect is dependent on poducts also because the page is getting rendered before the products value is received. So even if the products value is received later at some time than update setfilteredProducts to re-render the page
   
@@ -29,6 +19,7 @@ const Home = () => {
   {
     // if(!filteredProducts || !search)  // if you use this then put search on useEffect dependency array
     //   setfilteredProducts(products)
+    console.log("Called")
     if(!filteredProducts || category==='undefined')
       setfilteredProducts(products)
     else if(category!= "undefined") 

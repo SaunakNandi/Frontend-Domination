@@ -11,17 +11,7 @@ const Details = () =>
   const [products,setProducts]=useContext(ProductContext)
   const [item,setItems]=useState(null)
   let {id}=useParams()
-  // const getSingleProduct=async()=>{
-  //   try{
-  //     const {data}=await axios.get(`/products/${id}`)
-  //     console.log(data)
-  //     setItems(data)
-  //   }
-  //   catch(err)
-  //   {
-  //     console.log(err)
-  //   }
-  // }
+  
   useEffect(()=>{
     // getSingleProduct()
     if(!item){
@@ -29,7 +19,7 @@ const Details = () =>
     }
   },[])
   
-  const ProductDeleteHandler=()=>{
+  const ProductDeleteHandler=(id)=>{
     const FilterdProducts=products.filter((p)=>p.id!=id)
     setProducts(FilterdProducts)
     localStorage.setItem("products",JSON.stringify(FilterdProducts))
@@ -39,7 +29,7 @@ const Details = () =>
 
   return (
     item?(
-    <div className='w-[70%] h-full container m-auto p-[10%] flex items-center justify-start gap-[10%]'>
+    <div className='w-[70%] h-full container m-auto p-[10%] flex items-center gap-[10%]'>
 
         <img className='h-[80%] w-[40%] object-contain'
          src={`${item.image}`} alt="" />
