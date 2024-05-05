@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userdelete } from "../store/reducers/UserReducer";
 
 const Users = () => {
-  const { users } = useSelector((state) => state.UserReducer);
+  const { users } = useSelector((state) => state.UserReducer);   // called from store
   const dispatch = useDispatch();
   const DeleteHandler = (id) => {
     // console.log(id)
