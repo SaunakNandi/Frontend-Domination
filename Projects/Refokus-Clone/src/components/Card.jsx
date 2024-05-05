@@ -1,9 +1,10 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 import { GoArrowRight } from "react-icons/go";
-const Card = ({width,capsule,para,hover="none"}) => {
+const Card = ({width,capsule,para,hover="false"}) => {
   return (
-    <div className={`${width} bg-zinc-800 p-5 rounded-xl min-h-[50vh] flex flex-col justify-between
-    hover:${hover}`}>
+    <motion.div whileHover={{backgroundColor:(hover=="true")? '#7443ff':'none', 
+    padding: hover==="false" && "30px"}} className={`${width} bg-zinc-800 p-5 rounded-xl min-h-[50vh] flex flex-col justify-between`}>
         <div className="w-full">
             <div className="w-full flex justify-between items-center">
                 <h3>Onew Head</h3>
@@ -22,7 +23,7 @@ const Card = ({width,capsule,para,hover="none"}) => {
             para && <p className='text-sm text-zinc-500 font-medium'>Explore what drives our team</p>
           }
         </div>
-    </div>
+    </motion.div>
   )
 }
 
