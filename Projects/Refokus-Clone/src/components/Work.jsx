@@ -53,9 +53,9 @@ export const Work = () => {
           break;
       case 8: imageShow([0,1,2,3])
           break;
-      case 10: imageShow([0,1,2,3,4])
+      case 19: imageShow([0,1,2,3,4])
           break;
-      case 12: imageShow([0,1,2,3,4,5])
+      case 10: imageShow([0,1,2,3,4,5])
           break;
     }
   }
