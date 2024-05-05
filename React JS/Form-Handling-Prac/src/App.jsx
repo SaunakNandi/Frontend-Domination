@@ -11,15 +11,13 @@ const App = () => {
   const handleRemove=(id)=>{
     setUsers((prev)=>prev.filter((item,index)=> index!==id))
   }
-  // const handleRemove=(id)=>{
-  //   setUsers(()=>users.filter((item,index)=> index!==id))
-  // }
+
   return (
     <div className='w-full h-screen bg-zinc-200 flex items-center justify-center'>
       <div className="container mx-auto">
         <Cards handleRemove={handleRemove} users={users}></Cards>
         <Form handleFormSubmitData={handleFormSubmitData}></Form>
-      </div>
+      </div> 
     </div>
   )
 }
