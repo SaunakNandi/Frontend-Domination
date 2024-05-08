@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidenav from './template/Sidenav';
+import Sidenav from './partials/Sidenav';
 
 
 const Home = () => {
