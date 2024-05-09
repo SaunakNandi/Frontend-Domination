@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* ::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #181819;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6556CD;
+    border-radius: 10px;
+} */
+
+*::-moz-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  
+  /* Handle */
+  *::-moz-scrollbar-thumb {
+    background-color: #181819;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  *::-moz-scrollbar-thumb:hover {
+    background: #6556CD;
+    border-radius: 10px;
+  }
