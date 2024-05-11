@@ -25,7 +25,7 @@ const Topnav = () => {
       <input
         type="text"
         className="w-[50%] mx-9 p-5 px-2 text-xl outline-none border-none bg-transparent text-white"
-        placeholder="search anything"
+        placeholder="search movies/tv shows"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

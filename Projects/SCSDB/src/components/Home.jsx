@@ -3,10 +3,14 @@ import Sidenav from './partials/Sidenav';
 import Topnav from './partials/Topnav';
 import axios from '../utils/axios'
 import Header from './partials/Header';
+import HorizontalCards from './partials/HorizontalCards';
+import Dropdown from './partials/Dropdown'
 
 const Home = () => {
     document.title='Movie App'
     const [wallpaper, setWallpaper]=useState(null)
+    const [trending, setTrending]=useState(null)
+    const [category,setCategory] =useState("movie")
 
     const GetHeaderWallpaper=async()=>{
         try{
@@ -20,15 +24,34 @@ const Home = () => {
         }
     }
     console.log(wallpaper)
+
+    const GetTrending=async()=>{
+        try{
+            const {data}=await axios.get(`/trending/${category}/day`)
+            let random_data=data.results[(Math.random()*data.results.length).toFixed()]
+            setTrending(data.results)
+        }
+        catch(err)
+        {
+            console.log("Error ",err)
+        }
+    }
     useEffect(()=>{
+        console.log(category)
+        GetTrending()
         !wallpaper && GetHeaderWallpaper()
-    },[])
-    return wallpaper? (
+    },[category])
+    return wallpaper  && trending? (
         <>
             <Sidenav/>
-            <div className='w-[80%] h-full'>
+            <div className='w-[80%] h-full overflow-auto overflow-x-hidden'>
                 <Topnav/>
                 <Header wallpaper={wallpaper}/>
+                <div className="flex justify-between p-5">
+                    <h1 className='text-3xl font-semibold text-zinc-400'>Trending</h1>
+                    <Dropdown title="Filter" options={['tv','movie', 'all']} func={(e)=>setCategory(e.target.value)}/>
+                </div>
+                <HorizontalCards trend={trending}/>
             </div>
         </>
     ):<h1>Loading</h1>
