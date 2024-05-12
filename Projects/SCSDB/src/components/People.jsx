@@ -8,24 +8,23 @@ import Cards from './partials/Cards'
 import Loading from './Loading'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-const TvShow = () => {
-    const [category,setCategory]=useState("airing_today")
-    const [tv,setTv]=useState([])
+const People = () => {
+    const [people,setPeople]=useState([])
     const [page,setPage]=useState(1)
     const [hasMore,sethasMore]=useState(true)
-    document.title='Tv shows'
+    document.title='Casts'
     const navigate=useNavigate()
 
-    const GetTv=async()=>{
+    const GetPeople=async()=>{
         try{
-            const {data}=await axios.get(`/tv/${category}?page=${page}`)
-            // setTv(data.results)
+            const {data}=await axios.get(`/person/popular?page=${page}`)
+            // setPeople(data.results)
             console.log(data.results.length)
             console.log(page)
             if(data.results.length>0)
             {
-                // for this logic we have to do reset tv[] whenever the catergory or duration get changed 
-                setTv((prevState)=>[...prevState,...data.results])
+                // for this logic we have to do reset people[] whenever the catergory or duration get changed 
+                setPeople((prevState)=>[...prevState,...data.results])
                 setPage(page+1)
             }
             else
@@ -40,39 +39,38 @@ const TvShow = () => {
     }
 
     const refreshHandler=()=>{
-        if(tv.length===0)
-            GetTv()
+        if(people.length===0)
+            GetPeople()
         else
         {
             setPage(1)
-            setTv([])
-            GetTv()
+            setPeople([])
+            GetPeople()
         }
     }
 
     useEffect(()=>{
         refreshHandler()  // you can uncheck the above and it still works. The instructor has actually done in this way
-    },[category])
-  return  tv.length>0 ? (
+    },[])
+  return  people.length>0 ? (
     <div className='w-screen h-screen bg-[#28283c]'>
         <div className="px-[3%] w-full flex items-center justify-between">
             <h1 className='w-[20%] text-3xl text-zinc-400 font-semibold'>
                 <i onClick={()=>navigate(-1)}
                 className="mr-2 ri-arrow-left-line hover:text-[#6556CD] cu"></i> 
-                Tv<small className='ml-2 text-zinc-400'>({category})</small>
+                Stars
             </h1>
             <div className="flex items-center w-[80%]">
                 <Topnav/>
-                <Dropdown title="Cartegory" options={["on_the_air","popular","top_rated","airing_today"]} func={(e)=> setCategory(e.target.value)}/>
             </div>
         </div>
-        <InfiniteScroll dataLength={tv.length} next={GetTv}
+        <InfiniteScroll dataLength={people.length} next={GetPeople}
         hasMore={hasMore}
         loader={<h1 className='w-screen bg-[#28283c]'>Loading</h1>}>
-            <Cards data={tv} title={category}/>
+            <Cards data={people} title={"People"}/>
         </InfiniteScroll>
     </div>
   ):<Loading/>
 }
 
-export default TvShow
+export default People
