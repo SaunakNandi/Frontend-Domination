@@ -8,25 +8,25 @@ import Cards from './partials/Cards'
 import Loading from './Loading'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-const Trending = () => {
-    const [category,setCategory]=useState("all")
+const Movies = () => {
+    const [category,setCategory]=useState("now_playing")
     const [duration,setDuration]=useState("day")
-    const [trending,setTrending]=useState([])
+    const [movies,setMovies]=useState([])
     const [page,setPage]=useState(1)
     const [hasMore,sethasMore]=useState(true)
-    document.title='Trending '+category.toUpperCase()+" of the "+duration
+    // document.title='movies '+category.toUpperCase()+" of the "+duration
     const navigate=useNavigate()
 
-    const GetTrending=async()=>{
+    const GetMovies=async()=>{
         try{
-            const {data}=await axios.get(`/trending/${category}/${duration}?page=${page}`)
-            // setTrending(data.results)
+            const {data}=await axios.get(`/movie/${category}?page=${page}`)
+            // setMovies(data.results)
             console.log(data.results.length)
             console.log(page)
             if(data.results.length>0)
             {
-                // for this logic we have to do reset trending[] whenever the catergory or duration get changed 
-                setTrending((prevState)=>[...prevState,...data.results])
+                // for this logic we have to do reset movies[] whenever the catergory or duration get changed 
+                setMovies((prevState)=>[...prevState,...data.results])
                 setPage(page+1)
             }
             else
@@ -41,47 +41,39 @@ const Trending = () => {
     }
 
     const refreshHandler=()=>{
-        if(trending.length===0)
-            GetTrending()
+        if(movies.length===0)
+            GetMovies()
         else
         {
-            // console.log("called now")
-            // while changing category or duration this will set the page to 1 and empty the trending[].
-            // You can uncheck it too se the difference.
             setPage(1)
-            setTrending([])
-            GetTrending()
+            setMovies([])
+            GetMovies()
         }
     }
 
     useEffect(()=>{
-        // setPage(1)
-        // setTrending([])
-        // GetTrending()
         refreshHandler()  // you can uncheck the above and it still works. The instructor has actually done in this way
     },[category,duration])
-  return  trending ? (
+  return  movies.length>0 ? (
     <div className='w-screen h-screen bg-[#28283c]'>
         <div className="px-[3%] w-full flex items-center justify-between">
             <h1 className='w-[20%] text-3xl text-zinc-400 font-semibold'>
                 <i onClick={()=>navigate(-1)}
                 className="mr-2 ri-arrow-left-line hover:text-[#6556CD] cu"></i> 
-                Trending
+                Movies<span className='ml-2 text-zinc-400'>({category})</span>
             </h1>
             <div className="flex items-center w-[80%]">
                 <Topnav/>
-                <Dropdown title="Cartegory" options={["movie","tv","all"]} func={(e)=> setCategory(e.target.value)}/>
-                <div className="w-[2%]"></div>
-                <Dropdown title="Duration" options={["week","day"]} func={(e)=> setDuration(e.target.value)}/>
+                <Dropdown title="Cartegory" options={["popular","top_rated","now_playing","upcoming"]} func={(e)=> setCategory(e.target.value)}/>
             </div>
         </div>
-        <InfiniteScroll dataLength={trending.length} next={GetTrending}
+        <InfiniteScroll dataLength={movies.length} next={GetMovies}
         hasMore={hasMore}
         loader={<h1 className='w-screen bg-[#28283c]'>Loading</h1>}>
-            <Cards data={trending} title={category}/>
+            <Cards data={movies} title={category}/>
         </InfiniteScroll>
     </div>
   ):<Loading/>
 }
 
-export default Trending
+export default Movies

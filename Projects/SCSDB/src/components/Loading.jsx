@@ -1,9 +1,9 @@
 import React from 'react'
-import loader from '../assets/loader.gif'
+import loader2 from '../assets/loader2.gif'
 const Loading = () => {
   return (
     <div className='w-screen h-screen flex justify-center items-center bg-black overflow-hidden'>
-        <img className='w-[50%] object-cover' src={loader} alt="" />
+        <img className='w-full loader' src={loader2} alt="" />
     </div>
   )
 }
