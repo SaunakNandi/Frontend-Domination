@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-[#28282c] w-full h-screen flex">
+      <div className="bg-[#121214] w-full h-screen flex">
         <Routes>
           <Route path="/" element={<Home/>}></Route>
         </Routes>

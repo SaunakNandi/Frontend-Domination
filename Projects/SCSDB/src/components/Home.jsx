@@ -28,7 +28,6 @@ const Home = () => {
     const GetTrending=async()=>{
         try{
             const {data}=await axios.get(`/trending/${category}/day`)
-            let random_data=data.results[(Math.random()*data.results.length).toFixed()]
             setTrending(data.results)
         }
         catch(err)
@@ -37,7 +36,6 @@ const Home = () => {
         }
     }
     useEffect(()=>{
-        console.log(category)
         GetTrending()
         !wallpaper && GetHeaderWallpaper()
     },[category])

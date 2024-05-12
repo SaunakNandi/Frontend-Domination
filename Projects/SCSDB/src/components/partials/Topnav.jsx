@@ -49,7 +49,7 @@ const Topnav = () => {
                     ? `https://image.tmdb.org/t/p/original/${x.backdrop_path}`
                     : no_image
                 }
-                alt=""
+                alt={x.original_title || x.title || x.original_name || x.name}
                 className="w-[10vh] h-[10vh] object-cover rounded mr-5"
               />
               <span>

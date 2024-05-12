@@ -1,9 +1,6 @@
 import React from 'react'
-import Dropdown from './Dropdown'
 
 const HorizontalCards = ({trend}) => {
-
-
     return (
         
             <div className="w-[100%] flex h-[45vh] overflow-y-hidden mb-5 p-3">
@@ -11,7 +8,7 @@ const HorizontalCards = ({trend}) => {
                     <div className="min-w-[15%] mr-5 mb-5 bg-zinc-900" key={i}>
                         <img src={`https://image.tmdb.org/t/p/original${t.backdrop_path || t.poster_path}`} 
                         className='w-full h-[55%] object-cover'
-                        alt="" />
+                        alt={t.original_title || t.title || t.original_name || t.name}  />
                         <div className="text-white p-3 h-[55%]">
 
                             <h1 className='font-semibold'>
