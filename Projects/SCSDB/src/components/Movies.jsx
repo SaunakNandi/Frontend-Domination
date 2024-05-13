@@ -70,7 +70,7 @@ const Movies = () => {
         <InfiniteScroll dataLength={movies.length} next={GetMovies}
         hasMore={hasMore}
         loader={<h1 className='w-screen bg-[#28283c]'>Loading</h1>}>
-            <Cards data={movies} title={category}/>
+            <Cards data={movies} title="movie"/>
         </InfiniteScroll>
     </div>
   ):<Loading/>

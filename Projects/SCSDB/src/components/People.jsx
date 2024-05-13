@@ -14,23 +14,26 @@ const People = () => {
     const [hasMore,sethasMore]=useState(true)
     document.title='Casts'
     const navigate=useNavigate()
-
+    let counter=page
     const GetPeople=async()=>{
         try{
             const {data}=await axios.get(`/person/popular?page=${page}`)
             // setPeople(data.results)
-            console.log(data.results.length)
-            console.log(page)
-            if(data.results.length>0)
+            console.log(data.results)
+            let newData=data.results.filter((item)=> (item.poster_path || item.backdrop_path || item.profile_path))
+            console.log(newData);
+            if(data.results.length>0 && newData.length<1)
+            {
+                console.log(counter)
+            }
+            if(newData.length>0)
             {
                 // for this logic we have to do reset people[] whenever the catergory or duration get changed 
-                setPeople((prevState)=>[...prevState,...data.results])
+                setPeople((prevState)=>[...prevState,...newData])
                 setPage(page+1)
             }
             else
                 sethasMore(false)
-            
-            console.log(data);
         }
         catch(err)
         {
@@ -67,7 +70,7 @@ const People = () => {
         <InfiniteScroll dataLength={people.length} next={GetPeople}
         hasMore={hasMore}
         loader={<h1 className='w-screen bg-[#28283c]'>Loading</h1>}>
-            <Cards data={people} title={"People"}/>
+            <Cards data={people} title="person"/>
         </InfiniteScroll>
     </div>
   ):<Loading/>

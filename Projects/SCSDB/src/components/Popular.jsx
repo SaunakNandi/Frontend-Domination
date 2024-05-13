@@ -19,8 +19,7 @@ const popular = () => {
         try{
             const {data}=await axios.get(`${category}/popular?page=${page}`)
             // setPopular(data.results)
-            console.log(data.results.length)
-            console.log(page)
+            console.log(data.results)
             if(data.results.length>0)
             {
                 // for this logic we have to do reset popular[] whenever the catergory or duration get changed 
@@ -38,25 +37,25 @@ const popular = () => {
         }
     }
 
-    // const refreshHandler=()=>{
-    //     if(popular.length===0)
-    //         GetPopular()
-    //     else
-    //     {
-    //         // console.log("called now")
-    //         // while changing category or duration this will set the page to 1 and empty the popular[].
-    //         // You can uncheck it too se the difference.
-    //         setPage(1)
-    //         setPopular([])
-    //         GetPopular()
-    //     }
-    // }
+    const refreshHandler=()=>{
+        if(popular.length===0)
+            GetPopular()
+        else
+        {
+            // console.log("called now")
+            // while changing category or duration this will set the page to 1 and empty the popular[].
+            // You can uncheck it too se the difference.
+            setPage(1)
+            setPopular([])
+            GetPopular()
+        }
+    }
 
     useEffect(()=>{
-        setPage(1)
-        setPopular([])
-        GetPopular()
-        // refreshHandler()  // you can uncheck the above and it still works. The instructor has actually done in this way
+        // setPage(1)
+        // setPopular([])
+        // GetPopular()
+        refreshHandler()  // you can uncheck the above and it still works. The instructor has actually done in this way
     },[category])
   return  popular ? (
     <div className='w-screen h-screen bg-[#28283c]'>
