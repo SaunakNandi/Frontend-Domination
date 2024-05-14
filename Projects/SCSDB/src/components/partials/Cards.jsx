@@ -2,10 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Cards = ({data,title}) => {
-  
+
+  const filteredData=data.filter(obj => obj.profile_path !== null);  // for people profile. Hopes its working
+  // remove the duplicate data
+  const uniqueObjectsSet = new Set(filteredData.map(obj => JSON.stringify(obj)));
+
+// Convert back to an array of objects
+  const uniqueObjectsArray = Array.from(uniqueObjectsSet).map(jsonString => JSON.parse(jsonString));
+
+  console.log(uniqueObjectsArray.length," ",data.length);
+
   return (
     <div className='flex flex-wrap w-full h-full bg-[#28283c] px-[2%] mt-5 relative'>
-        {data.map((c,i)=> (
+        {uniqueObjectsArray.map((c,i)=> (
           <Link to={`/${c.media_type || title}/details/${c.id}`} key={i} className='relative w-[25vh] mx-[1%] mb-[5%]'>
                   <img className="h-[40vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)]" 
                   src={`https://image.tmdb.org/t/p/original/${c.poster_path || c.backdrop_path || c.profile_path}`} alt="" />
