@@ -19,7 +19,7 @@ export const asyncloadmovie=(id)=>async(dispatch,getState)=>{
             videos:videos.data,
             watchProviders:watchProviders.data
         }
-        console.table(ultimatedetails)
+        console.table("ultimatedetails ",ultimatedetails)
     }
     catch(err)
     {
