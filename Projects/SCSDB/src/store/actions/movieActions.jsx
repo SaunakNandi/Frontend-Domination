@@ -14,10 +14,10 @@ export const asyncloadmovie=(id)=>async(dispatch,getState)=>{
         let ultimatedetails={
             detail:detail.data,
             externalId:externalId.data,
-            recommendations:recommendations.data,
-            similar:similar.data,
+            recommendations:recommendations.data.results,
+            similar:similar.data.results,
             videos:videos.data,
-            watchProviders:watchProviders.data
+            watchProviders:watchProviders.data.results.IN
         }
         console.table("ultimatedetails ",ultimatedetails)
     }

@@ -5,8 +5,9 @@ import { useParams } from 'react-router-dom'
 
 const MovieDetails = () => {
   const {id}=useParams()
+  console.log(id)
   const dispatch=useDispatch();
-  useEffect((id)=>{
+  useEffect(()=>{
     dispatch(asyncloadmovie(id))
   },[])
   return (

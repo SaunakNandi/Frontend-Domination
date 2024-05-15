@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const HorizontalCards = ({trend}) => {
+    // console.log(trend)
     return (
         
             <div className="w-[100%] flex h-[45vh] overflow-y-hidden mb-5 p-3">
