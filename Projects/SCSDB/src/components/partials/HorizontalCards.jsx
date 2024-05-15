@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HorizontalCards = ({trend}) => {
     return (
         
             <div className="w-[100%] flex h-[45vh] overflow-y-hidden mb-5 p-3">
                 {trend.map((t,i)=> (
-                    <div className="min-w-[15%] mr-5 mb-5 bg-zinc-900" key={i}>
+                    <Link to={`/${t.media_type}/details/${t.id}`} className="min-w-[15%] mr-5 mb-5 bg-zinc-900" key={i}>
                         <img src={`https://image.tmdb.org/t/p/original${t.backdrop_path || t.poster_path}`} 
                         className='w-full h-[55%] object-cover'
                         alt={t.original_title || t.title || t.original_name || t.name}  />
@@ -18,7 +19,7 @@ const HorizontalCards = ({trend}) => {
                             <span className='text-blue-400'> more</span></p>
                         </div>
                     
-                    </div>
+                    </Link>
                 ))}
             </div>
   )

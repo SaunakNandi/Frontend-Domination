@@ -11,7 +11,9 @@ const Header = ({wallpaper}) => {
         <h1 className='text-4xl font-black'>
             {wallpaper.original_title || wallpaper.title || wallpaper.original_name || wallpaper.name}
         </h1>
-        <p className='w-[50%] mt-3'>{wallpaper.overview.slice(0,150)}...<Link className='text-blue-400'> more</Link></p>
+        <p className='w-[50%] mt-3'>{wallpaper.overview.slice(0,150)}...
+            <Link className='text-blue-400' to={`/${wallpaper.media_type}/details/${wallpaper.id}`}> more</Link>
+        </p>
         <p className='mt-5'>
             {
                 wallpaper.release_date? 
