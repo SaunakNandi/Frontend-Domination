@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncloadmovie, removemovie } from '../store/actions/movieActions'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
+import HorizontalCards from './partials/HorizontalCards'
 import { Link } from 'react-router-dom'
 import Loading from './Loading'
 const MovieDetails = () => {
-  const {pathname}=useLocation()
-  console.log(pathname)
+  const {pathname} =useLocation()
   const navigate=useNavigate()
   const {id}=useParams()
   const {info}=useSelector(state=>state.movie)
   const dispatch=useDispatch();
+  const [show,setShow]=useState(true)
+  console.log(pathname)
   useEffect(()=>{
     dispatch(asyncloadmovie(id))
 
@@ -18,10 +20,10 @@ const MovieDetails = () => {
     return ()=>{
       dispatch(removemovie())
     }
-  },[])
+  },[id])
   console.log(info && info)
   return info?(
-    <div className='w-screen h-screen px-[10%]'
+    <div className='w-full h-[150vh] px-[10%] relative'
     style={{background:`linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3),rgba(0,0,0,.8)),url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path || info.detail.poster_path})`,
     backgroundPosition: `top`,backgroundSize: `cover`,backgroundRepeat:'no-repeat'}}>
 
@@ -38,7 +40,7 @@ const MovieDetails = () => {
           <a target='_blank' href={`https://www.wikidata.org/wiki/${info.externalId.wikidata_id}`}>
             <i className="ri-earth-fill"></i>
           </a>
-          {/* <a target='_blank' href={`https://www.imdb.com/title/${info.externalId.imdb_id}`}>imdb</a> */}
+          <a target='_blank' href={`https://www.imdb.com/title/${info.externalId.imdb_id}`}>imdb</a>
         </nav>
 
       {/* Part2 Poster and details */}
@@ -68,13 +70,29 @@ const MovieDetails = () => {
           }
           
           <h1 className='text-2xl font-bold italic text-zinc-200'>{info.detail.tagline}</h1>
-          <h2 className="text-2xl font-semibold mb-3 mt-5">Overview</h2>
-          <p className='text-xl'>{info.detail.overview}</p>
+          <div className="flex mb-3 mt-5">
+            <h2 className="text-2xl font-semibold ">Overview</h2>
+
+            {
+              (show===true)?
+              <span onClick={()=>setShow(!show)}
+              className='w-[3vh] h-[3vh] bg-green-600 rounded-full flex items-center justify-center mt-1 ml-3 text-3xl'>
+                <i class="ri-arrow-drop-up-line"></i>
+              </span>
+              :
+              <span onClick={()=>setShow(!show)}
+              className='w-[3vh] h-[3vh] bg-green-600 rounded-full flex items-center justify-center mt-1 ml-3 text-3xl'>
+                <i class="ri-arrow-drop-down-line"></i>
+              </span>
+            }
+            
+          </div>
+          {!show && <p className='text-xl'>{info.detail.overview}</p>}
           <div className='mt-10'>
-            <a target='_blank' href={`https://www.imdb.com/title/${info.externalId.imdb_id}`}
+            <Link to={`${pathname}/trailer`}
             className=' p-5 bg-[#6556CD] rounded-lg'>
               Play Trailer 
-            <i className="ml-3 text-xl ri-play-large-fill"></i></a>
+            <i className="ml-3 text-xl ri-play-large-fill"></i></Link>
           </div>
           
         </div>
@@ -96,8 +114,6 @@ const MovieDetails = () => {
               }
             </div>
           )}
-
-            
 
           {info.watchProviders && info.watchProviders.rent && 
           (
@@ -126,6 +142,13 @@ const MovieDetails = () => {
             </div>
           )}
       </div>
+
+      {/* Part4 Recommendations and Similar Stuff */}
+      <div className="mt-[10vh]">
+        <h1 className='mb-6 text-4xl text-white font-semibold'>Recommended Movies</h1>
+        <HorizontalCards trend={info.recommendations.length>0 ? info.recommendations:info.similar}/>
+      </div>
+      <Outlet/>
     </div>
   ):<Loading/>
 }
