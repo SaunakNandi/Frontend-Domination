@@ -145,7 +145,7 @@ const MovieDetails = () => {
       </div>
 
       {/* Part4 Recommendations and Similar Stuff */}
-      <div className="mt-[10vh]">
+      <div className="mt-[5vh]">
         <h1 className='mb-6 text-4xl text-white font-semibold'>Recommended Movies</h1>
         <HorizontalCards trend={info.recommendations.length>0 ? info.recommendations:info.similar}/>
       </div>

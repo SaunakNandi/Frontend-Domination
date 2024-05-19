@@ -11,7 +11,7 @@ export const movieSlice = createSlice({
     loadmovie:(state,action)=>{
       state.info=action.payload
     },
-    removemovie:(state,action)=>{ 
+    removemovie:(state,action)=>{  // to unmount the data
       state.info=null
     }
   },
