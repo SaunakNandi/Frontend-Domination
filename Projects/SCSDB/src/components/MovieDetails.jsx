@@ -23,7 +23,7 @@ const MovieDetails = () => {
   },[id])
   console.log(info && info)
   return info?(
-    <div className='w-full h-[150vh] px-[10%] relative'
+    <div className='w-full h-[140vh] px-[10%] relative'
     style={{background:`linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3),rgba(0,0,0,.8)),url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path || info.detail.poster_path})`,
     backgroundPosition: `top`,backgroundSize: `cover`,backgroundRepeat:'no-repeat'}}>
 
@@ -94,7 +94,8 @@ const MovieDetails = () => {
               Play Trailer 
             <i className="ml-3 text-xl ri-play-large-fill"></i></Link>
           </div>
-          
+          {/* the Outlet component is used as a placeholder to render child routes within a parent route. This allows for nested routing */}
+          <Outlet/>
         </div>
       </div>
 
@@ -107,8 +108,8 @@ const MovieDetails = () => {
               {
                 info.watchProviders.flatrate.map((x)=>(
                   <img className='w-[5vh] h-[5vh] object-cover rounded-md'
-                  title={info.provider_name}
-                  key={info.provider_id}
+                  title={x.provider_name}
+                  key={x.provider_id}
                     src={`https://image.tmdb.org/t/p/original/${x.logo_path}`} alt=''/>
                 ))
               }
@@ -148,7 +149,7 @@ const MovieDetails = () => {
         <h1 className='mb-6 text-4xl text-white font-semibold'>Recommended Movies</h1>
         <HorizontalCards trend={info.recommendations.length>0 ? info.recommendations:info.similar}/>
       </div>
-      <Outlet/>
+
     </div>
   ):<Loading/>
 }
