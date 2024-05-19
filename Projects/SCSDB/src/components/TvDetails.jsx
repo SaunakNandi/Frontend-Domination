@@ -22,7 +22,7 @@ const TvDetails = () => {
   },[id])
   console.log(info)
   return info?(
-    <div className='w-full h-[140vh] px-[10%] relative'
+    <div className='w-full h-[160vh] px-[10%] relative overflow-y-auto'
     style={{background:`linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3),rgba(0,0,0,.8)),url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path || info.detail.poster_path})`,
     backgroundPosition: `top`,backgroundSize: `cover`,backgroundRepeat:'no-repeat'}}>
 
@@ -143,7 +143,29 @@ const TvDetails = () => {
           )}
       </div>
 
-      {/* Part4 Recommendations and Similar Stuff */}
+      {/* Part4 seasons */}
+      <div className="mt-[10vh]">
+        <h1 className='mb-6 text-4xl text-white font-semibold'>Seasons</h1>
+        <div className="w-[100%] h[55vh] flex overflow-y-hidden mb-5 p-3">
+          {
+            info.detail.seasons.length>0 ?
+            
+             ( info.detail.seasons.map((season)=>(
+                <div className='w-[12vw] mr-[6%]'>
+                  <img className="h-[40vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)] min-w-[15vw]" 
+                    src={`https://image.tmdb.org/t/p/original/${season.poster_path}`} alt="" />
+                  <h1 className='text-2xl text-zinc-300 font-semibold mt-3'>
+                      {season.name}
+                  </h1>
+                </div>
+            )))
+            :
+            <h1 className='mb-3 text-4xl text-white font-bol'>Currently Not Available</h1>
+          }
+        </div>
+      </div>
+
+      {/* Part5 Recommendations and Similar Stuff */}
       <div className="mt-[10vh]">
         <h1 className='mb-6 text-4xl text-white font-semibold'>Recommended Movies</h1>
         <HorizontalCards trend={info.recommendations.length>0 ? info.recommendations:info.similar}/>

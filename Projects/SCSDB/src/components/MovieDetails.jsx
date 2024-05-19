@@ -23,7 +23,7 @@ const MovieDetails = () => {
   },[id])
   console.log(info && info)
   return info?(
-    <div className='w-full h-[140vh] px-[10%] relative'
+    <div className='w-full h-[160vh] overflow-y-auto px-[10%] relative'
     style={{background:`linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3),rgba(0,0,0,.8)),url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path || info.detail.poster_path})`,
     backgroundPosition: `top`,backgroundSize: `cover`,backgroundRepeat:'no-repeat'}}>
 
