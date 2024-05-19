@@ -89,8 +89,9 @@ const MovieDetails = () => {
           </div>
           {!show && <p className='text-xl'>{info.detail.overview}</p>}
           <div className='mt-10'>
+            {/* bg-[#6556CD] */}
             <Link to={`${pathname}/trailer`}
-            className=' p-5 bg-[#6556CD] rounded-lg'>
+            className=' p-5 bg-transparent rounded-lg'>
               Play Trailer 
             <i className="ml-3 text-xl ri-play-large-fill"></i></Link>
           </div>

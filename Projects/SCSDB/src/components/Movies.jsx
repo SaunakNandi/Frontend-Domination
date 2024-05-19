@@ -21,8 +21,6 @@ const Movies = () => {
         try{
             const {data}=await axios.get(`/movie/${category}?page=${page}`)
             // setMovies(data.results)
-            console.log(data.results.length)
-            console.log(page)
             if(data.results.length>0)
             {
                 // for this logic we have to do reset movies[] whenever the catergory or duration get changed 
