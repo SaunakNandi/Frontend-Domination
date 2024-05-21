@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import no_image from '../../assets/no_image.png'
 const Cards = ({data,title}) => {
 
   const filteredData=data.filter(obj => obj.profile_path !== null);  // for people profile. Hopes its working
@@ -17,7 +17,9 @@ const Cards = ({data,title}) => {
         {uniqueObjectsArray.map((c,i)=> (
           <Link to={`/${c.media_type || title}/details/${c.id}`} key={i} className='relative w-[25vh] mx-[1%] mb-[5%]'>
                   <img className="h-[40vh] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)]" 
-                  src={`https://image.tmdb.org/t/p/original/${c.poster_path || c.backdrop_path || c.profile_path}`} alt="" />
+                  src={(c.poster_path || c.backdrop_path || c.profile_path)?
+                    `https://image.tmdb.org/t/p/original/${c.poster_path || c.backdrop_path || c.profile_path}`
+                    : no_image} alt="" />
                   <h1 className='text-2xl text-zinc-300 font-semibold mt-3'>
                       {c.original_title || c.title || c.original_name || c.name}
                   </h1>

@@ -15,7 +15,7 @@ const Trailer = () => {
         <Link onClick={()=>navigate(-1)} 
           className="ri-close-fill hover:text-[#6556CD] absolute text-white top-[15%] right-[5%] text-4xl z-[99]"></Link> 
         {yt_video ?
-        <ReactPlayer height={800} width={1500} url={`https://www.youtube.com/watch?v=${yt_video.key}`}/>
+        <ReactPlayer controls height={800} width={1500} url={`https://www.youtube.com/watch?v=${yt_video.key}`}/>
         :<Notfound></Notfound>}
         
     </div>

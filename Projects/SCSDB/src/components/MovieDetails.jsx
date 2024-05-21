@@ -5,6 +5,7 @@ import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 import HorizontalCards from './partials/HorizontalCards'
 import { Link } from 'react-router-dom'
 import Loading from './Loading'
+
 const MovieDetails = () => {
   const {pathname} =useLocation()
   const navigate=useNavigate()
@@ -21,7 +22,7 @@ const MovieDetails = () => {
       dispatch(removemovie())
     }
   },[id])
-  console.log(info && info)
+  //console.log(info && info)
   return info?(
     <div className='w-full h-[160vh] overflow-y-auto px-[10%] relative'
     style={{background:`linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3),rgba(0,0,0,.8)),url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path || info.detail.poster_path})`,
