@@ -15,7 +15,7 @@ const PersonDetails = () => {
   const dispatch=useDispatch();
   const [show,setShow]=useState(true)
   const [category,setCategory]=useState("movie")
-  console.log(info)
+
   useEffect(()=>{
     dispatch(asyncloadperson(id))
 
@@ -39,7 +39,7 @@ const PersonDetails = () => {
         <div className="w-[20%]">
           <img
           className="h-[40vh] shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)] object-cover" 
-      src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path || info.detail.poster_path}`}              alt="" />
+      src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path || info.detail.poster_path}`} alt="" />
           <hr className='mt-10 mb-5 border-none h-[2px] bg-zinc-500'/>
 
           {/* Social Media link */}
@@ -48,10 +48,10 @@ const PersonDetails = () => {
               <i className="ri-earth-fill"></i>
             </a>
             <a target='_blank' href={`https://www.instagram.com/${info.externalId.instagram_id}`}>
-              <i class="ri-instagram-fill"></i>
+              <i className="ri-instagram-fill"></i>
             </a>
             <a target='_blank' href={`https://www.instagram.com/${info.externalId.twitter_id}`}>
-              <i class="ri-twitter-x-fill"></i>
+              <i className="ri-twitter-x-fill"></i>
             </a>
           </div>
 
@@ -84,17 +84,16 @@ const PersonDetails = () => {
             <Dropdown title="Category" options={["tv","movie"]} func={(e)=>setCategory(e.target.value)}/>
           </div>
 
-          <div className="w-full h-[50vh] overflow-x-hidden overflow-y-auto shadow-xl mt-5
-          shadow-[rgba(255,255,255,.3)] border-2 border-zinc-700 p-5 text-zinc-400 list-disc">
+          <div className="w-full h-[50vh] overflow-x-hidden overflow-y-auto shadow-xl mt-5 shadow-[rgba(255,255,255,.3)] border-2 border-zinc-700 p-5 text-zinc-400 list-disc">
             {
-            info[category+"Credits"].cast.map((c,i)=>{
-              <li key={i} className="hover:text-white hover:bg-[#19191d] duration-300 cursor-pointer">
-                <Link className=''>
-                  <span>{" "}{c.name || c.original_title || c.title || c.original_name}</span>
-                  <span className='block'>{c.character}</span>
+            info[category+"Credits"].cast.map((c,i)=>(
+              <li key={i} className="hover:text-white hover:bg-[#19191d] duration-300 cursor-pointer p-5">
+                <Link className='' to={`/${category}/details/${c.id}`}>
+                  <span>{"Movie Name: "}{c.name || c.original_title || c.title || c.original_name}</span>
+                  <span className='block'>{c.character && `Character name: ${c.character}`}</span>
                 </Link>
               </li>
-            })}
+            ))}
 
           </div>
         </div>

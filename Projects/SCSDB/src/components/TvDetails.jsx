@@ -81,7 +81,7 @@ const TvDetails = () => {
               :
               <span onClick={()=>setShow(!show)}
               className='w-[3vh] h-[3vh] bg-green-600 rounded-full flex items-center justify-center mt-1 ml-3 text-3xl'>
-                <i class="ri-arrow-drop-down-line"></i>
+                <i className="ri-arrow-drop-down-line"></i>
               </span>
             }
             

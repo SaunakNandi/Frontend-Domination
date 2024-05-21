@@ -2,11 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import no_image from '../../assets/no_image.png'
 const HorizontalCards = ({trend}) => {
-    // console.log(trend)
+    const uniqueObjects = {};
+    trend.forEach(obj => {
+        uniqueObjects[obj.id] = obj;
+    });
+
     return (
         
             <div className="w-[100%] flex overflow-y-hidden mb-5 p-3">
-                {trend.length>0 ? trend.map((t,i)=> (
+                {uniqueObjects.length>0 ? uniqueObjects.map((t,i)=> (
                     <Link to={`/${t.media_type}/details/${t.id}`} className="min-w-[20%] h-[50vh] mr-5 mb-5 bg-zinc-900 overflow-y-auto" key={t.id}>
                         <img 
                         src={(t.backdrop_path || t.poster_path)? `https://image.tmdb.org/t/p/original${t.backdrop_path || t.poster_path}`

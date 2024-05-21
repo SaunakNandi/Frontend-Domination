@@ -24,7 +24,7 @@ const Home = () => {
             console.log("Error ",err)
         }
     }
-    console.log(wallpaper)
+    // console.log(wallpaper)
 
     const GetTrending=async()=>{
         try{
