@@ -2,7 +2,7 @@ import React from 'react'
 
 const Dropdown = ({title,options,func}) => {
   return (
-    <div className="select">
+    <div className="select mr-4">
         <select name="format" 
         onChange={func}
         id="format" defaultValue="0">

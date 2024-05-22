@@ -25,13 +25,8 @@ const Movies = () => {
             // setMovies(data.results)
             if(data.results.length>0)
             {
-                // for this logic we have to do reset movies[] whenever the catergory or duration get changed 
-                console.log("called")
-                if(sortOption==="none")
-                    setMovies((prevState)=>[...prevState,...data.results])
-                else if(sortOption==="rating")
-                    setMovies((prevState)=>[...prevState,...data.results].sort((a,b)=>b.popularity-a.popularity))
-                // else if(sortOption==="name")
+                
+                setMovies((prevState)=>[...prevState,...data.results])
                 setPage(page+1)
             }
             else
@@ -71,7 +66,7 @@ const Movies = () => {
             <div className="flex items-center w-[80%]">
                 <Topnav/>
                 <Dropdown title="Cartegory" options={["popular","top_rated","now_playing","upcoming"]} func={(e)=> setCategory(e.target.value)}/>
-                <SortDropDown title="Sort by" options={["rating","name"]} func={(e)=> setsortOption(e.target.value)}/>
+                <Dropdown title="Sort by" options={["rating -(high - low)","rating -(low - high)"]} func={(e)=> setsortOption(e.target.value)}/>
             </div>
         </div>
         <InfiniteScroll dataLength={movies.length} next={GetMovies}

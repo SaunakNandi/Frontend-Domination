@@ -10,14 +10,23 @@ const Cards = ({data,title,options}) => {
 // Convert back to an array of objects
   const uniqueObjectsArray = Array.from(uniqueObjectsSet).map(jsonString => JSON.parse(jsonString));
 
-  // console.log(uniqueObjectsArray.length," ",data.length);
 
   let array=uniqueObjectsArray
-  if(options=="rating")
+  if(options=="rating -(high - low)")
   {
-    array=uniqueObjectsArray.sort((a, b) => b.popularity - a.popularity)
+    array=uniqueObjectsArray.sort((a, b) => (b.vote_average*10).toFixed() - (a.vote_average*10).toFixed())
     console.log(array)
   }
+  else if(options=="rating -(low - high)")
+  {
+    array=uniqueObjectsArray.sort((a, b) => (a.vote_average*10).toFixed() - (b.vote_average*10).toFixed())
+    console.log(array)
+  }
+  // else if(options=="name")
+  // {
+  //   array=uniqueObjectsArray.sort((a, b) => a.title.localeCompare(b.title))
+  //   console.log(array)
+  // }
 
   return (
     <div className='flex flex-wrap w-full h-full bg-[#28283c] px-[2%] mt-5 relative'>
@@ -31,13 +40,11 @@ const Cards = ({data,title,options}) => {
                       {c.original_title || c.title || c.original_name || c.name}
                   </h1>
                   {
-                    c.vote_average ?
-                   (
-                      <div className="absolute right-[-10%] bottom-[25%] text-white w-[5vh] h-[5vh] flex justify-center items-center rounded-full text-xl font-semibold bg-yellow-400">{(c.vote_average*10).toFixed()}<sup>%</sup></div> )
-                      :
-                      (
-                        <div ></div>
-                      )
+                    c.vote_average>0 &&
+                   
+                      <div className="absolute right-[-10%] bottom-[25%] text-white w-[5vh] h-[5vh] flex justify-center items-center rounded-full text-xl font-semibold bg-yellow-400">{(c.vote_average*10).toFixed()}<sup>%</sup></div> 
+                      
+                      
                   }
         </Link>
       ))}
