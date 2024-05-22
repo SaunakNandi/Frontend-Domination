@@ -24,8 +24,7 @@ const Movies = () => {
             const {data}=await axios.get(`/movie/${category}?page=${page}`)
             // setMovies(data.results)
             if(data.results.length>0)
-            {
-                
+            { 
                 setMovies((prevState)=>[...prevState,...data.results])
                 setPage(page+1)
             }

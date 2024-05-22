@@ -24,8 +24,16 @@ const Header = ({wallpaper}) => {
             }
             <i className="text-yellow-500 ml-4 mr-2 ri-album-fill"></i>{wallpaper.media_type.toUpperCase()}
         </p>
-        <Link className="p-3 mt-2 bg-[#6556CD] rounded-lg font-semibold"
-        to={`/${wallpaper.media_type}/details/${wallpaper.id}/trailer`}>Watch Trailer</Link>
+        <div className="flex items-center mt-10 gap-10 justify-between w-full">
+            <div>
+            <Link className="p-3 bg-[#6556CD] rounded-lg font-semibold"
+            to={`/${wallpaper.media_type}/details/${wallpaper.id}/trailer`}>Watch Trailer</Link>
+            </div>
+            <div className=''>
+                <i className="text-4xl mr-[30vw] ri-arrow-left-circle-line"></i>
+                <i className="text-4xl mr-[] ri-arrow-right-circle-line"></i>
+            </div>
+        </div>
     </div>
   )
 }
