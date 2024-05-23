@@ -45,7 +45,7 @@ const Home = () => {
             <Sidenav/>
             <div className='w-[80%] h-full overflow-auto overflow-x-hidden'>
                 <Topnav/>
-                <Header wallpaper={wallpaper}/>
+                <Header/>
                 <div className="flex justify-between p-5">
                     <h1 className='text-3xl font-semibold text-zinc-400'>Trending</h1>
                     <Dropdown title="Filter" options={['tv','movie', 'all']} func={(e)=>setCategory(e.target.value)}/>
