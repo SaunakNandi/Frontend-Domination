@@ -14,7 +14,7 @@ export const asyncgetProducts=()=> async(dispatch,getState)=>{
         const response=await axios.get("https://fakestoreapi.com/products")
         // here we have data of products that is sync data
         // console.log(response.data)
-        dispatch(getProducts(response.data))  // cal any action using dispatch()
+        dispatch(getProducts(response.data))  // call any action using dispatch()
     } catch (error) {
         console.log()
     }

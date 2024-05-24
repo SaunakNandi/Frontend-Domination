@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Open Sans';
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  margin: 2rem auto;
+  text-align: center;
+  height: 100vh;
+}
+
+.nav-bg-color {
+  background-color: #e3f2fd;
+}
+
+.navbar-brand,
+.collapse.navbar-collapse,
+.navbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: small;
+}
+
+.card {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.user-nav {
+  width: 20rem;
+  margin: 2rem auto;
+}
+
+.form-box {
+  text-align: left;
+  padding: 1.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: rgb(35, 35, 35);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.form-box .form-group {
+  margin-bottom: 1rem;
+}
+
+.form-box .form-control {
+  background: #000000;
+  color: #fff;
+}
+
+.search-input {
+  height: 2rem;
+}
+
+main .notify-form {
+  width: 20rem;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+main .notify-form .btn {
+  margin-top: 1rem;
+  background: #1e1c1c;
+  color: #fff;
+}
+.navbar .notify-form {
+  flex-direction: row !important;
+  align-items: center;
+  width: 15rem;
+}
+.navbar .notify-form .btn {
+  background-color: #1e1c1c;
+  color: #fff;
+  border: 1px solid #ffffff;
+}

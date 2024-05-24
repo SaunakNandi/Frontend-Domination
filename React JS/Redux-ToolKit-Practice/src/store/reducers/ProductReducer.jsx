@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+
 const initialState={
     products: [],
 }
@@ -12,9 +12,12 @@ export const ProductSlice = createSlice({
             // console.log(state)
             // console.log(action)
             state.products=action.payload
+        },
+        deleteProduct:(state,action)=>{
+            state.products=state.products.filter(prod=> prod.id!=action.payload)
         }
     }
 })
 
 export default ProductSlice.reducer
-export const {getProducts}=ProductSlice.actions
+export const {getProducts,deleteProduct}=ProductSlice.actions

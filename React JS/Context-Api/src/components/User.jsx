@@ -9,11 +9,10 @@ const User = () => {
         <div>
             {/* <UserDetails></UserDetails> */}
             <h1 className='text-3xl'>User List</h1>
-            <div className="flex flex-col w-1/2 gap-3  mt-10">
+            <div className="flex flex-col w-1/2 gap-3 mt-10">
                 {users.map(u=>(
                     <Link key={u.id} to={`/user/${u.id}`} className='bg-red-200 p-3'>{u.username}</Link>
                 ))}
-                
             </div>
         </div>
     )
