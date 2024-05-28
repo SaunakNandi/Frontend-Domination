@@ -1,0 +1,18 @@
+App ->
+    Navbar ->
+        Button Component
+    Work
+    Stripes ->
+        Stripe
+    Products ->
+        Product
+    Marquee ->
+    Blocks ->
+        Block
+    Footer
+
+
+Applying animations ->
+
+Smoothness handle -> locomotive js - beta
+animation of work Component
