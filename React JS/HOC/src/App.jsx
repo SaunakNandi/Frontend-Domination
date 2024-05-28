@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 // import UsersList from './UsersList'
 import SearchTodos from './TodoUsers'
-// import SearchUsers from './UsersList'
+import SearchUsers from './UsersList'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,7 +15,7 @@ function App() {
       <div className="section">
         <div>
           {/* <UsersList/> */}
-          {/* <SearchUsers/> */}
+          <SearchUsers/>
         </div>
         <div>
           <SearchTodos/>

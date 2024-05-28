@@ -38,6 +38,6 @@ const UsersList = ({data}) => {
   )
 }
 
-const SearchUsers=withFetchAndSearch(UsersList,"users")
+const SearchUsers=withFetchAndSearch(UsersList,'https://jsonplaceholder.typicode.com/users', 'name')
 
 export default SearchUsers
