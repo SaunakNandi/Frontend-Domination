@@ -18,10 +18,13 @@ function App() {
 
     // stale query are refetched automatically in the background when ->
     // the new instance of the query is mounted or when new window is refocused or when the network is reconnected and when the query is optionally configured such that it has refetch interval.
-    staleTime: 4000,  
+    //staleTime: 4000,  
+    // refetchOnWindowFocus:false, // staleTime will not trigger anything on the change of window
+    refetchInterval: 4000,
   })
 
   const  queryClient=useQueryClient()
+
   // useMutation to alter the data
   const {mutate, isPending, isError, isSuccess}=useMutation({mutationFn:(newPost)=> fetch("https://jsonplaceholder.typicode.com/posts",{
     method:'POST',
