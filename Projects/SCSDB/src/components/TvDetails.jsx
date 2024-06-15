@@ -103,7 +103,8 @@ const TvDetails = () => {
 
       {/* Part3 Available on platform*/}
       <div className="w-[80%] flex flex-col gap-y-5 mt-10">
-        {info.watchProviders && info.watchProviders.flatrate && 
+        {
+          info.watchProviders && info.watchProviders.flatrate && 
           (
             <div className="flex items-center gap-x-10 text-white">
               <h1>Available on Platform</h1>
