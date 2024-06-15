@@ -8,23 +8,29 @@ import Dropdown from './partials/Dropdown'
 import Loading from './Loading';
 
 const Home = () => {
-    document.title='Movie App'
+    document.title='Movie Book'
     const [wallpaper, setWallpaper]=useState(null)
     const [trending, setTrending]=useState(null)
     const [category,setCategory] =useState("movie")
-
+    const [page,setPage] = useState(1)
+    const set_page=()=>{
+        console.log("called")
+        setPage(page+1)
+    }
     const GetHeaderWallpaper=async()=>{
         try{
-            const {data}=await axios.get(`/trending/${category}/day`)
-            let random_data=data.results[(Math.random()*data.results.length).toFixed()]
-            setWallpaper(random_data)
+            const {data}=await axios.get(`/trending/movie/day?page=${page}`)
+
+            wallpaper? setWallpaper((prevState=> [...prevState,...data.results]))
+            :
+            setWallpaper(data.results)
+            // console.log(data.results)
         }
         catch(err)
         {
             console.log("Error ",err)
         }
     }
-    // console.log(wallpaper)
 
     const GetTrending=async()=>{
         try{
@@ -38,14 +44,15 @@ const Home = () => {
     }
     useEffect(()=>{
         GetTrending()
-        !wallpaper && GetHeaderWallpaper()
-    },[category])
+        // !wallpaper && 
+        GetHeaderWallpaper()
+    },[category,page])
     return wallpaper  && trending? (
         <>
             <Sidenav/>
             <div className='w-[80%] h-full overflow-auto overflow-x-hidden'>
                 <Topnav/>
-                <Header/>
+                <Header wallpaper={wallpaper} set_page={set_page}/>
                 <div className="flex justify-between p-5">
                     <h1 className='text-3xl font-semibold text-zinc-400'>Trending</h1>
                     <Dropdown title="Filter" options={['tv','movie', 'all']} func={(e)=>setCategory(e.target.value)}/>

@@ -14,6 +14,8 @@ const MovieDetails = () => {
   const dispatch=useDispatch();
   const [show,setShow]=useState(true)
   console.log(pathname)
+  const category=pathname.split("/")[1]
+  console.log(category)
   useEffect(()=>{
     dispatch(asyncloadmovie(id))
 
@@ -22,7 +24,7 @@ const MovieDetails = () => {
       dispatch(removemovie())
     }
   },[id])
-  //console.log(info && info)
+  console.log(info && info)
   return info?(
     <div className='w-full h-[160vh] overflow-y-auto px-[10%] relative'
     style={{background:`linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3),rgba(0,0,0,.8)),url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path || info.detail.poster_path})`,
@@ -92,7 +94,7 @@ const MovieDetails = () => {
           <div className='mt-10'>
             {/* bg-[#6556CD] */}
             <Link to={`${pathname}/trailer`}
-            className=' p-5 bg-transparent rounded-lg'>
+            className="p-3 bg-[#6556CD] rounded-lg font-semibold">
               Play Trailer 
             <i className="ml-3 text-xl ri-play-large-fill"></i></Link>
           </div>
@@ -146,10 +148,17 @@ const MovieDetails = () => {
           )}
       </div>
 
-      {/* Part4 Recommendations and Similar Stuff */}
+      {/* Part4 Casts */}
+      <div className="mt-[5vh]">
+        <h1 className='mb-6 text-4xl text-white font-semibold'>Casts</h1>
+        <HorizontalCards trend={info.casts} category={'person'}/>
+      </div>
+
+      {/* Part5 Recommendations and Similar Stuff */}
       <div className="mt-[5vh]">
         <h1 className='mb-6 text-4xl text-white font-semibold'>Recommended Movies</h1>
-        <HorizontalCards trend={info.recommendations.length>0 ? info.recommendations:info.similar}/>
+        <HorizontalCards trend={info.recommendations.length>0 ? info.recommendations:info.similar}
+        category={category}/>
       </div>
 
     </div>

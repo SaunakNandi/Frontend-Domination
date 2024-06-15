@@ -1,36 +1,48 @@
 import axios from '../../utils/axios'
 import React, { useEffect,useState } from 'react'
 import { Link } from 'react-router-dom'
+import './Style.css'
 
-const Header = () => {
+const Header = ({wallpaper,set_page}) => {
     
-    const [wallpaper, setWallpaper]=useState(null)
     const [activeindex,setActiveIndex]=useState(1)
-    const GetWallpaper=async()=>{
-        const {data}=await axios.get(`/trending/movie/day?page=2`)
-        console.log(data.results)
-        setWallpaper(data.results)
-    }
-    const Slide_Left=()=>{
-        setActiveIndex(!activeindex? wallpaper.length-1:activeindex-1)
-    }
+    const [transitionClass, setTransitionClass] = useState('');
+    // console.log(wallpaper)
+    
+    // Using setTimeout for setTransitionClass in the slide transition functions is necessary to ensure that the browser has enough time to apply the initial class before changing it. This approach ensures that the CSS transition actually takes place. Without the setTimeout, the state changes can happen too quickly for the browser to render the transition smoothly.
+
+    const Slide_Left = () => {
+        setTransitionClass('carousel-exit-left');
+        setTimeout(() => {
+          setActiveIndex((prevIndex) => (prevIndex === 0 ? wallpaper.length - 1 : prevIndex - 1));
+          setTransitionClass('carousel-enter-left');
+        }, 500);
+      };
     const Slide_Right=()=>{
-        setActiveIndex((activeindex+1) % wallpaper.length)
+
+        if(activeindex+1==wallpaper.length-1)
+            set_page()
+        setTransitionClass('carousel-exit-right');
+        setTimeout(() => {
+            setActiveIndex((activeindex+1) % wallpaper.length)
+            setTransitionClass('carousel-enter-right');
+        }, 500);
     }
     
-    GetWallpaper();
+    // GetWallpaper();
     useEffect(()=>{
+        console.log("called")
         const intervalId=setInterval(() => {
             Slide_Right()
-        }, 4000);
+        }, 5000);
         return ()=>{
             clearInterval(intervalId)
         }
-    },[])
+    },[activeindex])
 
   return wallpaper && (
     wallpaper.map((w,i)=>(
-        <div className={(activeindex===i? 'initial':'hidden')}>
+        <div key={i} className={`carousel-slide ${activeindex === i ? transitionClass : 'hidden'}`}>
             <div style={{background:`linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.3),rgba(0,0,0,.8)),url(https://image.tmdb.org/t/p/original/${w.backdrop_path})`,
                     backgroundPosition: `top`,backgroundSize: `cover`}}
                     className="w-full h-[60vh] flex flex-col justify-end pb-[2%] pl-[5%] text-white items-start">
@@ -56,9 +68,9 @@ const Header = () => {
                         to={`/${w.media_type}/details/${w.id}/trailer`}>Watch Trailer</Link>
                         </div>
                         <div className='mr-[33vw]'>
-                            <i className="text-4xl mr-3 ri-arrow-left-circle-line"
+                            <i className={`text-4xl mr-3 ri-arrow-left-circle-line cursor-pointer ${i === 0 ? 'hidden' : ''}`}
                             onClick={Slide_Left}></i>
-                            <i className="text-4xl ri-arrow-right-circle-line" onClick={Slide_Right}></i>
+                            <i className="text-4xl ri-arrow-right-circle-line cursor-pointer" onClick={Slide_Right}></i>
                         </div>
                     </div>
                 </div>

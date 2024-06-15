@@ -12,13 +12,14 @@ import TvDetails from './components/TvDetails'
 import PersonDetails from './components/PersonDetails'
 import Trailer from './components/partials/Trailer'
 import Notfound from './components/NotFound'
+import TvSeasons from './components/TvSeasons'
 function App() {
 
 
   // developer.themoviedb.org/reference/trending-all
   return (
     <>
-      <div className="bg-[#1d1d20] w-full h-screen flex">
+      <div className="bg-[#1d1d20] w-full h-full flex">
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/trending" element={<Trending/>}></Route>
@@ -30,6 +31,9 @@ function App() {
           <Route path="/tv" element={<TvShow/>}></Route>
           <Route path='/tv/details/:id' element={<TvDetails/>}>
             <Route path='/tv/details/:id/trailer' element={<Trailer/>}></Route>
+          </Route>
+          <Route path='/tv/details/:id/season/:id' element={<TvSeasons/>}>
+            <Route path='/tv/details/:id/season/:id/trailer' element={<Trailer/>}></Route>
           </Route>
           <Route path="/person" element={<People/>}></Route>
           <Route path='/person/details/:id' element={<PersonDetails/>}></Route>
