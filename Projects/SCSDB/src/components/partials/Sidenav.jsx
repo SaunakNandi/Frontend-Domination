@@ -31,7 +31,7 @@ const Sidenav = () => {
 
       <hr className="border-none h-[1px] bg-zinc-400 text-xl gap-3" />
 
-      <nav className="flex flex-col gap=3 text-zinc-400 text-xl">
+      {/* <nav className="flex flex-col gap=3 text-zinc-400 text-xl">
         <h1 className="text-white font-semibold text-xl mt-10 mb-5">
           New Feeds
         </h1>
@@ -41,7 +41,7 @@ const Sidenav = () => {
         <Link className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg hover:pl-8 p-5">
           <i className="mr-2 ri-phone-fill"></i>Contact
         </Link>
-      </nav>
+      </nav> */}
     </div>
   );
 };

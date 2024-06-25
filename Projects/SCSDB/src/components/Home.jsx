@@ -50,7 +50,7 @@ const Home = () => {
     return wallpaper  && trending? (
         <>
             <Sidenav/>
-            <div className='w-[80%] h-full overflow-auto overflow-x-hidden'>
+            <div className='w-[80%] overflow-auto overflow-x-hidden'>
                 <Topnav/>
                 <Header wallpaper={wallpaper} set_page={set_page}/>
                 <div className="flex justify-between p-5">
