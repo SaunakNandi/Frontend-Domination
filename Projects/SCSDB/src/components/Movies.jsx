@@ -59,7 +59,7 @@ const Movies = () => {
         <div className="px-[3%] w-full flex items-center justify-between">
             <h1 className='w-[20%] text-3xl text-zinc-400 font-semibold'>
                 <i onClick={()=>navigate(-1)}
-                className="mr-2 ri-arrow-left-line hover:text-[#6556CD] cu"></i> 
+                className="mr-2 ri-arrow-left-line hover:text-[#6556CD]"></i> 
                 Movies<span className='ml-2 text-zinc-400'>({category})</span>
             </h1>
             <div className="flex items-center w-[80%]">

@@ -33,7 +33,8 @@ const TodoUsers= ({data}) => {
         </div> */}
       <div>
         <h2>Todos</h2>
-        {data.slice(0, 10).map((todo) => (
+        {
+          data.slice(0, 10).map((todo) => (
           <div key={todo.id}>
             <h4>{todo.title}</h4>
           </div>
