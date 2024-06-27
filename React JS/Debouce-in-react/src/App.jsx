@@ -12,11 +12,14 @@ function App() {
 
   const [searchResults, setSearchResults] = useState([]);
 
+  // https://stackoverflow.com/questions/61785903/problems-with-debounce-in-useeffect
+  
   // if useCallback is not used then -> 
   // debouncedRequest is created anew on every render. Therefore, the debounce logic does not work correctly because each new function does not have the internal state of the previous one.
-  // Using useCallback ensures that the debouncedRequest function is memoized and only recreated when its dependencies change (in this case, there are no dependencies, so it is created only once).
+  // Using useCallback ensures that the debouncedRequest function is memoized and only recreated when its  dependencies change (in this case, there are no dependencies, so it is created only once).
   const debouncedRequest = useCallback(
     debounce(async (searchTerm) => {
+      // console.log("run")
       const results = await getSearchResults(searchTerm);
       setSearchResults(results);
     }, 500),

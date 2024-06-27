@@ -13,7 +13,7 @@ const Parent = () => {
   }
   return (
     <div>
-        {/* Using props will kill the use of memo() hence using callback*/}
+        {/* Using props will kill the use of memo() (used while exporting Child component) hence using callback*/}
         <Child counterTwo={counterTwo} func={func}/>
       <button onClick={IncrementOne}>count1: {counterOne}</button>
 
