@@ -9,7 +9,7 @@ const HorizontalCards = ({trend,category}) => {
         uniqueObjects[obj.id] = obj;
     });
     const uniqueArrayOfObjects = Object.values(uniqueObjects)
-    console.log(uniqueArrayOfObjects)
+    // console.log(uniqueArrayOfObjects)
 
     const cardVariants = {
         hidden: { opacity: 0, x: -100 },
