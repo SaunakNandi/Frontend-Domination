@@ -16,6 +16,7 @@ function App() {
   // debouncedRequest is created anew on every render. Therefore, the debounce logic does not work correctly because each new function does not have the internal state of the previous one.
   // Using useCallback ensures that the debouncedRequest function is memoized and only recreated when its dependencies change (in this case, there are no dependencies, so it is created only once).
   const debouncedRequest = useCallback(
+    
     debounce(async (searchTerm) => {
       const results = await getSearchResults(searchTerm);
       setSearchResults(results);
