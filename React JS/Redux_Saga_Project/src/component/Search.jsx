@@ -13,7 +13,7 @@ const Search = () => {
   return (
     <>
       <h2 className="title">Movie Search App</h2>
-      <form action="" className="form" onSubmit={(e) => e.preventDefault()}>
+      <form className="form" onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           placeholder="Search Movie By Name..."

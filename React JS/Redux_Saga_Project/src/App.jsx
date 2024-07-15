@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Movie from "./redux/pages/Movie";
-import Home from "./redux/pages/Home";
+import Movie from "./component/Movie";
+import Home from "./component/Home";
 function App() {
   const [count, setCount] = useState(0);
 

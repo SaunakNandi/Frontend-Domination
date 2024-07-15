@@ -1,11 +1,12 @@
 import React from "react";
-import Search from "../../component/Search";
+import Search from "./Search";
+import MoviesList from "./MoviesList";
 
 const Home = () => {
   return (
     <>
       <Search />
-      {/* Movie List */}
+      <MoviesList/>
     </>
   );
 };
