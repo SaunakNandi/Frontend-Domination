@@ -10,7 +10,6 @@ function App()
     <>
     
       <div className='mt-5 p-5 w-[80%] bg-green-100 mx-auto'>
-
         <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/users/:id' element={<User/>}></Route>

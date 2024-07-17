@@ -1,0 +1,45 @@
+@each $key, $val in $colors{
+    .text-#{$key}{  // text-primary or text-secondary
+        color: $val
+    }
+    .text-hover-#{$key}{
+        &:hover{
+            color:$val
+        }
+        // &:nth-child(1){
+        //     color:$val
+        // }
+    }
+    .bg-#{$key}{  
+        background-color: $val;
+    }
+
+    // light variations
+
+    @for $i from 1 through 9
+    {
+        .text-#{$key}-light-#{$i}  // text-light-i =>text-light-1, text-light-2 
+        {
+            // white,$val, $i*10% - this means mix white with whatever the value of $val(primar,secondary,purple,...) by (10%, 20%, 30%...) and so on. So i*10% percent of white will be mixed with $val 
+            color: mix(white,$val, $i*10%)
+        }
+        .bg-#{$key}-light-#{$i}
+        {
+            background-color: mix(white,$val, $i*10%)
+        }
+    }
+
+    // dark variation
+    @for $i from 1 through 9
+    {
+        .text-#{$key}-dark-#{$i}
+        {
+            // white,$val, $i*10% - this means mix white with whatever the value of $val(primar,secondary,purple,...) by (10%, 20%, 30%...) and so on. So i*10% percent of white will be mixed with $val 
+            color: mix(black,$val, $i*10%)
+        }
+        .bg-#{$key}-dark-#{$i}
+        {
+            background-color: mix(black,$val, $i*10%)
+        }
+    }
+}
