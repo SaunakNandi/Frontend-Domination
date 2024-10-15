@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 // import UsersList from './UsersList'
 import SearchTodos from './TodoUsers'
 import SearchUsers from './UsersList'
+
+
+// Requirement -> I want to create 2 search functionality where one searchbar will search based on 'title' and another searchbar will search based on 'name'
 
 function App() {
   const [count, setCount] = useState(0)

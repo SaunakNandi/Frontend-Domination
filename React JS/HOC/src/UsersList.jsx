@@ -26,13 +26,19 @@ const UsersList = ({data}) => {
     //         <h4>{user.name}</h4>
     //     </div>
     // ))
-  return (
+  return data && (
     <>
         {/* <h2>Users</h2>
         <input type="text" value={term} onChange={(e)=>setTerm(e.target.value)}/> */}
         <div>
             {/* {filteredUsers} */}
-            {renderUsers}
+            {
+                data.map((user,i)=>(
+                    <div key={user.id}>
+                        <h4>{user.name}</h4>
+                    </div>
+                ))
+            }
         </div>
     </>
   )
